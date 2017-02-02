@@ -35,7 +35,7 @@ class CamHandler(BaseHTTPRequestHandler):
             self.wfile.write('</body></html>')
             return
 
-class ThreadedHTTPServer(ThreadingMixIn, HTTPServer):
+129.lass ThreadedHTTPServer(ThreadingMixIn, HTTPServer):
     """Handle requests in a separate thread."""
 
 
@@ -46,7 +46,7 @@ def main():
     capture.set(3, 320)
     capture.set(4, 240)
     try:
-        server = ThreadedHTTPServer(('127.0.0.1', 9090), CamHandler)
+        server = ThreadedHTTPServer(('192.168.1.111', 9090), CamHandler)
         print("starting server")
         server.serve_forever()
     except KeyboardInterrupt:
