@@ -2,7 +2,8 @@ import cv2
 from http.server import BaseHTTPRequestHandler, HTTPServer
 from socketserver import ThreadingMixIn
 from threading import Thread
-
+import imutils
+import sys
 
 class CamHandler(BaseHTTPRequestHandler):
     def do_GET(self):
@@ -14,9 +15,9 @@ class CamHandler(BaseHTTPRequestHandler):
             while True:
                 try:
 
-                    if(contourImg != None):
+                    if(frame != None):
                         pass
-                    r, buf = cv2.imencode(".jpg", contourImg)
+                    r, buf = cv2.imencode(".jpg", frame)
                     self.wfile.write("--jpgboundary\r\n".encode())
                     self.end_headers()
                     self.wfile.write(bytearray(buf))
@@ -77,7 +78,7 @@ class WebcamVideoStream:
 
 
 def realmain():
-    global contourImg
+    global frame
 
     ip = ''
     try:
@@ -89,34 +90,22 @@ def realmain():
         i = 0
         while True:
 
-            contourImg = cap.read()
+            img = cap.read()
+            img1 = imutils.resize(img, width=600)
+            img2 = cv2.GaussianBlur(img1, (5, 5), 0)
+            #frame = cv2.cvtColor(img2, cv2.COLOR_BGR2HSV)
 
-            if(i == 0): target.start()
+            frame = cv2.Canny(img, 35, 125)
+            if(i == 0):
+                target.start()
             i +=1
 
     except KeyboardInterrupt:
+        raise
+    except:
         server.socket.close()
         target.join()
-
-
-
-
-
-def main():
-    global capture
-
-    ip = ''
-
-    capture = cv2.VideoCapture(0)
-    capture.set(3, 320)
-    capture.set(4, 240)
-    try:
-        server = ThreadedHTTPServer((ip, 9090), CamHandler)
-        print("starting server")
-        server.serve_forever()
-    except KeyboardInterrupt:
-        capture.release()
-        server.socket.close()
+        sys.exit()
 
 if __name__ == '__main__':
     realmain()
