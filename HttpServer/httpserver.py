@@ -17,8 +17,7 @@ class CamHandler(BaseHTTPRequestHandler):
                     rc, img = capture.read()
                     if not rc:
                         continue
-                    imgRGB = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
-                    r, buf = cv2.imencode(".jpg", imgRGB)
+                    r, buf = cv2.imencode(".jpg", img)
                     self.wfile.write("--jpgboundary\r\n".encode())
                     self.end_headers()
                     self.wfile.write(bytearray(buf))
@@ -31,7 +30,7 @@ class CamHandler(BaseHTTPRequestHandler):
             self.send_header('Content-type', 'text/html')
             self.end_headers()
             self.wfile.write('<html><head></head><body>')
-            self.wfile.write('<img src="http://127.0.0.1:9090/cam.mjpg" height="240px" width="320px"/>')
+            self.wfile.write('<img src="http://localhost:9090/cam.mjpg" height="240px" width="320px"/>')
             self.wfile.write('</body></html>')
             return
 
@@ -42,11 +41,14 @@ class ThreadedHTTPServer(ThreadingMixIn, HTTPServer):
 
 def main():
     global capture
+
+    ip = ''
+
     capture = cv2.VideoCapture(0)
     capture.set(3, 320)
     capture.set(4, 240)
     try:
-        server = ThreadedHTTPServer(('127.0.0.1', 9090), CamHandler)
+        server = ThreadedHTTPServer((ip, 9090), CamHandler)
         print("starting server")
         server.serve_forever()
     except KeyboardInterrupt:
