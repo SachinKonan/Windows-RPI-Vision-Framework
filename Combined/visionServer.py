@@ -30,11 +30,7 @@ class CamHandler(BaseHTTPRequestHandler):
             self.send_header('Content-type', 'text/html')
             self.end_headers()
             self.wfile.write('<html><head></head><body>')
-<<<<<<< HEAD
             self.wfile.write('<img src="http://localhost:8080/stream.mjpg" height="240px" width="320px"/>')
-=======
-            self.wfile.write('<img src="http://192.168.1.122:8000/cam.mjpg" height="240px" width="320px"/>')
->>>>>>> 6f8297ee12ea8134acc85757d2cebc098323e78c
             self.wfile.write('</body></html>')
             return
 
@@ -84,14 +80,10 @@ class WebcamVideoStream:
 def realmain():
     global frame
 
-    ip = '192.168.1.122'
+    ip = '0.0.0.0.'
     try:
         cap = WebcamVideoStream().start()
-<<<<<<< HEAD
         server = ThreadedHTTPServer((ip, 8080), CamHandler)
-=======
-        server = ThreadedHTTPServer((ip, 8000), CamHandler)
->>>>>>> 6f8297ee12ea8134acc85757d2cebc098323e78c
         print("starting server")
         target = Thread(target=server.serve_forever,args=())
 
