@@ -8,7 +8,7 @@ import sys
 class CamHandler(BaseHTTPRequestHandler):
     def do_GET(self):
         print(self.path)
-        if self.path.endswith('.mjpg'):
+        if self.path.endswith('/stream.mjpg'):
             self.send_response(20)
             self.send_header('Content-type', 'multipart/x-mixed-replace; boundary=--jpgboundary')
             self.end_headers()
@@ -30,7 +30,7 @@ class CamHandler(BaseHTTPRequestHandler):
             self.send_header('Content-type', 'text/html')
             self.end_headers()
             self.wfile.write('<html><head></head><body>')
-            self.wfile.write('<img src="http://localhost:8080/stream.mjpg" height="240px" width="320px"/>')
+            self.wfile.write('<img src="http://localhost:9090/stream.mjpg" height="240px" width="320px"/>')
             self.wfile.write('</body></html>')
             return
 
@@ -80,10 +80,11 @@ class WebcamVideoStream:
 def realmain():
     global frame
 
-    ip = '0.0.0.0.'
+    ip = 'localhost'
+
     try:
         cap = WebcamVideoStream().start()
-        server = ThreadedHTTPServer((ip, 8080), CamHandler)
+        server = ThreadedHTTPServer((ip, 9090), CamHandler)
         print("starting server")
         target = Thread(target=server.serve_forever,args=())
 
@@ -101,9 +102,6 @@ def realmain():
             i +=1
 
     except KeyboardInterrupt:
-        raise
-    except:
-        
         sys.exit()
 
 if __name__ == '__main__':
