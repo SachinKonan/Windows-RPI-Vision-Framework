@@ -30,7 +30,7 @@ class CamHandler(BaseHTTPRequestHandler):
             self.send_header('Content-type', 'text/html')
             self.end_headers()
             self.wfile.write('<html><head></head><body>')
-            self.wfile.write('<img src="http://localhost:9090/cam.mjpg" height="240px" width="320px"/>')
+            self.wfile.write('<img src="http://192.168.1.122:8000/cam.mjpg" height="240px" width="320px"/>')
             self.wfile.write('</body></html>')
             return
 
@@ -80,10 +80,10 @@ class WebcamVideoStream:
 def realmain():
     global frame
 
-    ip = ''
+    ip = '192.168.1.122'
     try:
         cap = WebcamVideoStream().start()
-        server = ThreadedHTTPServer((ip, 9090), CamHandler)
+        server = ThreadedHTTPServer((ip, 8000), CamHandler)
         print("starting server")
         target = Thread(target=server.serve_forever,args=())
 
@@ -103,8 +103,7 @@ def realmain():
     except KeyboardInterrupt:
         raise
     except:
-        server.socket.close()
-        target.join()
+        
         sys.exit()
 
 if __name__ == '__main__':
