@@ -146,7 +146,10 @@ def realmain():
 
 
             if (len(cnts) > 1):
-                area, place = contourArea(cnts)
+                lister = contourArea(cnts)
+
+                area = lister[0]
+                place = lister[1]
                 if (area != 0):
                     c = cnts[place]
 
