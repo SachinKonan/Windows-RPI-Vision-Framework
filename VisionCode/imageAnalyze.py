@@ -1,11 +1,31 @@
 import cv2
 import numpy as np
 from matplotlib import pyplot as plt
+import operator
 
 def onmouse(k, x, y, s, p):
     global hsv
     if k == 1:  # left mouse, print pixel at x,y
         print(hsv[y, x])
+def contourArea(contours):
+    area = []
+    for i in range(0,len(contours)):
+       area.append([cv2.contourArea(contours[i]),i])
+
+    area.sort()
+
+    v = [[area[i+1][0]-area[i][0] for i in range(len(area)-1)]]
+    index, gdiff = max(enumerate(v), key=operator.itemgetter(1))
+    if(len(area) >= 2):
+        if(index <= len(v) - 1):
+            if(area[len(area) -1][0] >= 1300):
+                return [area[len(area ) - 1], area[len(area) - 2] ]
+            else:
+                return 0
+        else:
+            return 0
+    else:
+        return 0
 
 lower_green = (55, 130, 20)
 upper_green = (90, 256, 180)
@@ -17,9 +37,15 @@ mask = cv2.inRange(hsv, lower_green, upper_green)
 edged = cv2.Canny(mask, 35, 125)
 
 im2, cnts, hierarchy = cv2.findContours(edged.copy(), cv2.RETR_LIST, cv2.CHAIN_APPROX_NONE)
+result = contourArea(cnts)
+
+if(result != 0):
+    print(result)
+
+"""
 cv2.drawContours(img, cnts, -1, (0,0,255), 3)
 
-rect = cv2.minAreaRect(cnts[3])
+rect = cv2.minAreaRect(cnts[0])
 box = cv2.boxPoints(rect)
 box = np.int0(box)
 cv2.drawContours(img, [box], 0, (255, 0, 0), 2)
@@ -30,4 +56,4 @@ cv2.setMouseCallback("Image w Contours", onmouse)
 cv2.imshow('Image w Contours', img)
 
 cv2.waitKey(0)
-cv2.destroyAllWindows()
+cv2.destroyAllWindows()"""
