@@ -145,7 +145,8 @@ def realmain():
             # (x, y) center of the ball
             im2, cnts, hierarchy = cv2.findContours(edged.copy(), cv2.RETR_LIST, cv2.CHAIN_APPROX_NONE)
 
-
+            frame = t
+            """
             if (len(cnts) > 1):
                 lister = contourArea(cnts)
 
@@ -172,7 +173,7 @@ def realmain():
                     # sock.sendto(('Y').encode(),(UDP_IP,UDP_PORT))
             else:
                 sock.sendto('N'.encode(), (UDP_IP, UDP_PORT))
-
+            """
             if (i == 0):
                 target.start()
             i += 1
