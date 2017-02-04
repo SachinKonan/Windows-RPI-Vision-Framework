@@ -150,13 +150,10 @@ def realmain():
 
             frame = t
             if(len(cnts) >= 1):
-                fatty = contourArea(cnts)
-
-                area = fatty[0]
-                place = fatty[1]
+                area, place = contourArea(cnts)
 
                 print(area)
-                time.sleep(0.1)
+                time.sleep(1)
 
             """
             if (len(cnts) > 1):
