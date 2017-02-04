@@ -8,7 +8,7 @@ from collections import deque
 import socket
 
 # construct the argument parse and parse the arguments
-# v4l2-ctl --set-ctrl brightness=130
+# v4l2-ctl --set-ctrl brightness=25
 #cmd commands:
 #source ~/.profile
 #workon cv
