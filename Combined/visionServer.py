@@ -146,6 +146,7 @@ def realmain():
             im2, cnts, hierarchy = cv2.findContours(edged.copy(), cv2.RETR_LIST, cv2.CHAIN_APPROX_NONE)
 
             frame = t
+            print(cnts)
             """
             if (len(cnts) > 1):
                 lister = contourArea(cnts)
