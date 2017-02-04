@@ -154,8 +154,8 @@ def realmain():
 
             if(len(cnts) >= 1):
                 pincher = contourArea(cnts)
-                for i in pincher:
-                    print( i)
+                for l in pincher:
+                    print(l)
                 time.sleep(1)
 
             """
@@ -186,6 +186,7 @@ def realmain():
             else:
                 sock.sendto('N'.encode(), (UDP_IP, UDP_PORT))
             """
+
             if (i == 0):
                 target.start()
             i += 1
