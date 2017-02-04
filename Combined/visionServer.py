@@ -153,7 +153,7 @@ def realmain():
                     rect = cv2.minAreaRect(maxc)
                     box = cv2.boxPoints(rect)
                     box = np.int0(box)
-                    cv2.drawContours(t, [box], 0, (255, 0, 0), 2)
+                    cv2.drawContours(t, [box], 0, (0, 0, 255), 2)
 
             frame = t
             """
