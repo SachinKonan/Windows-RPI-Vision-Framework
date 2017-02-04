@@ -151,11 +151,12 @@ def realmain():
 
             frame = t
 
+            """
             if(len(cnts) >= 1):
                 place = contourArea(cnts)
                 for i in place:
                     print(place)
-            """
+
             if (len(cnts) > 1):
                 lister = contourArea(cnts)
 
