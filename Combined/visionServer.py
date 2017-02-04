@@ -6,6 +6,8 @@ import imutils
 import sys
 from collections import deque
 import socket
+import numpy as np
+
 
 # construct the argument parse and parse the arguments
 # v4l2-ctl --set-ctrl brightness=25
@@ -125,8 +127,8 @@ def realmain():
             frame = imutils.resize(img, width=320,height=240)
 
 
-            frame1 = imutils.resize(img, width=600)
-            img = cv2.GaussianBlur(frame1, (5, 5), 0)
+            #frame1 = imutils.resize(img, width=600)
+            img = cv2.GaussianBlur(frame, (5, 5), 0)
             hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
             # construct a mask for the color "green", then perform
             # a series of dilations and erosions to remove any small
@@ -142,6 +144,13 @@ def realmain():
                 area, place = contourArea(cnts)
                 if (area != 0):
                     c = cnts[place]
+
+                    M = cv2.moments(c)
+                    rect = cv2.minAreaRect(c)
+                    box = cv2.boxPoints(rect)
+                    box = np.int0(box)
+                    cv2.drawContours(frame, [box], 0, (255, 0, 0), 2)
+
                     # cv2.drawContours(frame, c, -1, (0, 0, 255), 3)
                     M = cv2.moments(c)
                     cx = int(M['m10'] / M['m00'])  # Center of MASS Coordinates
