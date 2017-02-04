@@ -51,7 +51,7 @@ class CamHandler(BaseHTTPRequestHandler):
             self.send_header('Content-type', 'text/html')
             self.end_headers()
             self.wfile.write('<html><head></head><body>')
-            self.wfile.write('<img src="http://localhost:9090/stream.mjpg" height="240px" width="320px"/>')
+            self.wfile.write('<img src="http://localhost:9090/stream.mjpg" height="480px" width="640px"/>')
             self.wfile.write('</body></html>')
             return
 
@@ -123,7 +123,7 @@ def realmain():
         while True:
 
             img = cap.read()
-            t = imutils.resize(img, width=320,height=240)
+            t = imutils.resize(img, width=640,height=480)
             #frame1 = imutils.resize(img, width=600)
             #img1 = cv2.GaussianBlur(t, (5, 5), 0)
 
