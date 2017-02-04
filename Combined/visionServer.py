@@ -22,7 +22,7 @@ def contourArea(contours):
        area.append([cv2.contourArea(contours[i]),i])
 
     area.sort()
-    if(area[len(area) - 1] >= 1200):
+    if(area[len(area) - 1][0] >= 1200):
         return area[len(area)-1]
 
     else: return 0
