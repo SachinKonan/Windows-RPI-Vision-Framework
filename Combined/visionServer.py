@@ -79,8 +79,9 @@ class WebcamVideoStream:
 
 def realmain():
     global frame
-
-    ip = 'localhost'
+    #lower_green = (55, 50, 120)
+    #upper_green = (90, 250, 256)
+    ip = ''
 
     try:
         cap = WebcamVideoStream().start()
@@ -92,15 +93,13 @@ def realmain():
         while True:
 
             img = cap.read()
-            img1 = imutils.resize(img, width=600)
+            img1 = imutils.resize(img, width=320,height=240)
             img2 = cv2.GaussianBlur(img1, (5, 5), 0)
-            #frame = cv2.cvtColor(img2, cv2.COLOR_BGR2HSV)
-
-            frame = cv2.Canny(img, 35, 125)
-            if(i == 0):
+            frame = cv2.Canny(img2, 35, 125)
+            
+	    if(i==0):
                 target.start()
-            i +=1
-
+            i+=1
     except KeyboardInterrupt:
         sys.exit()
 
