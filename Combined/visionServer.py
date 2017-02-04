@@ -125,8 +125,8 @@ def realmain():
 
             img = cap.read()
             frame = imutils.resize(img, width=320,height=240)
-
-
+            
+            """
             #frame1 = imutils.resize(img, width=600)
             img = cv2.GaussianBlur(frame, (5, 5), 0)
             hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
@@ -163,7 +163,7 @@ def realmain():
                     # sock.sendto(('Y').encode(),(UDP_IP,UDP_PORT))
             else:
                 sock.sendto('N'.encode(), (UDP_IP, UDP_PORT))
-
+            """
             if (i == 0):
                 target.start()
             i += 1
