@@ -143,10 +143,9 @@ def realmain():
             # (x, y) center of the ball
             im2, cnts, hierarchy = cv2.findContours(edged.copy(), cv2.RETR_LIST, cv2.CHAIN_APPROX_NONE)
 
-            fatty = contourArea(cnts)
-            for lit in fatty:
-                print(lit)
-
+            area,place = contourArea(cnts)
+            print(area)
+            print(place)
             print('XXXXXXXXXXXXXXXXXXXXXXXXXXXx')
             time.sleep(1)
             """
