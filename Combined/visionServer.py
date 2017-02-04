@@ -24,11 +24,7 @@ def contourArea(contours):
     area.sort()
 
 
-    if(area[len(area) - 1][0] >= 100):
-        return area[len(area)-1]
-
-    else:
-        return 0
+    return area
 
 
 class CamHandler(BaseHTTPRequestHandler):
@@ -148,9 +144,11 @@ def realmain():
             # (x, y) center of the ball
             im2, cnts, hierarchy = cv2.findContours(edged.copy(), cv2.RETR_LIST, cv2.CHAIN_APPROX_NONE)
 
-            frame = t
-            
+            fatty = contourArea(cnts)
+            for lit in fatty:
+                print(lit)
 
+            time.sleep(1)
             """
             if (len(cnts) > 1):
                 lister = contourArea(cnts)
