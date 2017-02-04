@@ -149,11 +149,7 @@ def realmain():
             im2, cnts, hierarchy = cv2.findContours(edged.copy(), cv2.RETR_LIST, cv2.CHAIN_APPROX_NONE)
 
             frame = t
-            if(len(cnts) >= 1):
-                area, place = contourArea(cnts)
-
-                print(area)
-                time.sleep(1)
+            if(len(cnts) >= 1): continue
 
             """
             if (len(cnts) > 1):
