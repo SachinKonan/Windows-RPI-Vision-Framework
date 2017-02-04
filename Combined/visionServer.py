@@ -164,7 +164,7 @@ def realmain():
                     sock.sendto(('Y ' + str(cx) + ' ' + str(cy) + ' ' + "{0:.2f}".format(length)).encode(),(UDP_IP, UDP_PORT))
             else:
                 sock.sendto('N'.encode(), (UDP_IP, UDP_PORT))
-                
+
             frame = t
             """
             if (len(cnts) > 1):
