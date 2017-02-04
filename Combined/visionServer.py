@@ -124,19 +124,17 @@ def realmain():
         while True:
 
             img = cap.read()
-<<<<<<< HEAD
             frame = imutils.resize(img, width=320,height=240)
             
             """
             #frame1 = imutils.resize(img, width=600)
             img = cv2.GaussianBlur(frame, (5, 5), 0)
-=======
+
             #frame = imutils.resize(img, width=320,height=240)
 
 
             frame1 = imutils.resize(img, width=600)
             img = cv2.GaussianBlur(frame1, (5, 5), 0)
->>>>>>> 9c4cd488aa4d255f928487f8d484612da372fba9
             hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
             # construct a mask for the color "green", then perform
             # a series of dilations and erosions to remove any small
