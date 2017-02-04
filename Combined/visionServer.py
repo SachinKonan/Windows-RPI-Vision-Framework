@@ -148,6 +148,7 @@ def realmain():
             for lit in fatty:
                 print(lit)
 
+            print('XXXXXXXXXXXXXXXXXXXXXXXXXXXx')
             time.sleep(1)
             """
             if (len(cnts) > 1):
