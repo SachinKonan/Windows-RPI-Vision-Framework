@@ -159,6 +159,8 @@ def realmain():
                 target.start()
             i += 1
     except KeyboardInterrupt:
+        cap.stop()
+        target.join()
         sys.exit()
 
 if __name__ == '__main__':
