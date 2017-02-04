@@ -5,7 +5,6 @@ import imutils
 import cv2
 import time
 import socket
-from internetcheck import ServerConnection
 # construct the argument parse and parse the arguments
 # v4l2-ctl --set-ctrl brightness=130
 #cmd commands:
@@ -23,7 +22,7 @@ class WebcamVideoStream:
         self.stream = cv2.VideoCapture(src)
         #self.stream.set(3, 1920)
         #self.stream.set(4, 1080)
-        #self.stream.set(15,-100)
+        self.stream.set(15,-10)
         (self.grabbed, self.frame) = self.stream.read()
  
         # initialize the variable used to indicate if the thread should
@@ -106,7 +105,7 @@ if __name__ == "__main__":
     #connection = ServerConnection()
     #connection.start()
     time.sleep(1)
-    camera = WebcamVideoStream(src=0).start()
+    camera = WebcamVideoStream(src=1).start()
     start_time = time.time()
 
     while True:
@@ -145,7 +144,7 @@ if __name__ == "__main__":
         else:
              sock.sendto('N'.encode(),(UDP_IP,UDP_PORT))
         
-        """
+
         cv2.namedWindow("Image w Contours")
         cv2.setMouseCallback("Image w Contours", onmouse)
         cv2.imshow('Image w Contours', frame)
@@ -154,14 +153,14 @@ if __name__ == "__main__":
         
         
         # if the 'q' key is pressed, stop the loop
-        if key == ord("q"):
+        if key == ord("x"):
             break
         #if(numframes == 0): print(frame.shape)
-        """
+
         numframes+=1
         
-        if numframes >= 200:
-            break
+        #if numframes >= 200:
+           # break
             
     
     camera.stop()
