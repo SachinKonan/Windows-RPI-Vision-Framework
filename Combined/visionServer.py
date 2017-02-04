@@ -22,12 +22,16 @@ def contourArea(contours):
        area.append([cv2.contourArea(contours[i]),i])
 
     area.sort()
+    return area[len(area) - 1]
+    """
     if(area[len(area) - 1][0] >= 1200):
         print(area[len(area)-1])
         return area[len(area)-1]
 
-    else: return 0
+    else:
+        return 0
 
+    """
 class CamHandler(BaseHTTPRequestHandler):
     def do_GET(self):
         print(self.path)
@@ -146,7 +150,11 @@ def realmain():
             im2, cnts, hierarchy = cv2.findContours(edged.copy(), cv2.RETR_LIST, cv2.CHAIN_APPROX_NONE)
 
             frame = t
-            print(cnts)
+
+            if(len(cnts) >= 1):
+                place = contourArea(cnts)
+                for i in place:
+                    print(place)
             """
             if (len(cnts) > 1):
                 lister = contourArea(cnts)
