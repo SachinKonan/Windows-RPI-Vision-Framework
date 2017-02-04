@@ -7,7 +7,7 @@ import sys
 from collections import deque
 import socket
 import numpy as np
-
+import time
 
 # construct the argument parse and parse the arguments
 # v4l2-ctl --set-ctrl brightness=25
@@ -22,7 +22,7 @@ def contourArea(contours):
        area.append([cv2.contourArea(contours[i]),i])
 
     area.sort()
-    return area[len(area) - 1]
+    return area
     """
     if(area[len(area) - 1][0] >= 1200):
         print(area[len(area)-1])
@@ -120,7 +120,7 @@ def realmain():
     ip = ''
 
     try:
-        cap = WebcamVideoStream().start()
+        cap = WebcamVideoStream(src=0).start()
         server = ThreadedHTTPServer((ip, 9090), CamHandler)
         print("starting server")
         target = Thread(target=server.serve_forever,args=())
@@ -131,13 +131,13 @@ def realmain():
             img = cap.read()
             t = imutils.resize(img, width=320,height=240)
             #frame1 = imutils.resize(img, width=600)
-            img1 = cv2.GaussianBlur(t, (5, 5), 0)
+            #img1 = cv2.GaussianBlur(t, (5, 5), 0)
 
             #frame = imutils.resize(img, width=320,height=240)
 
 
             #frame1 = imutils.resize(img, width=600)
-            img2 = cv2.GaussianBlur(img1, (5, 5), 0)
+            img2 = cv2.GaussianBlur(t, (5, 5), 0)
             hsv = cv2.cvtColor(img2, cv2.COLOR_BGR2HSV)
             # construct a mask for the color "green", then perform
             # a series of dilations and erosions to remove any small
@@ -151,12 +151,14 @@ def realmain():
 
             frame = t
 
-            """
+
             if(len(cnts) >= 1):
                 pincher = contourArea(cnts)
-                area = pincher[0]
-                place = pincer[1]
+                for i in pincher:
+                    print( i)
+                time.sleep(1)
 
+            """
             if (len(cnts) > 1):
                 lister = contourArea(cnts)
 
