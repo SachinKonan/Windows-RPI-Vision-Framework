@@ -4,6 +4,28 @@ from socketserver import ThreadingMixIn
 from threading import Thread
 import imutils
 import sys
+from collections import deque
+import socket
+
+# construct the argument parse and parse the arguments
+# v4l2-ctl --set-ctrl brightness=130
+#cmd commands:
+#source ~/.profile
+#workon cv
+#python '/home/pi/Documents/PythonProjects/pyImage.py' or wherever u have pyImage saved
+
+from threading import Thread
+import cv2
+def contourArea(contours):
+    area = []
+    for i in range(0,len(contours)):
+       area.append([cv2.contourArea(contours[i]),i])
+
+    area.sort()
+    if(area[len(area) - 1] >= 7 * area[0]):
+        return area[len(area)-1]
+
+    else: return 0
 
 class CamHandler(BaseHTTPRequestHandler):
     def do_GET(self):
@@ -79,8 +101,17 @@ class WebcamVideoStream:
 
 def realmain():
     global frame
-    #lower_green = (55, 50, 120)
-    #upper_green = (90, 250, 256)
+    lower_green = (55, 50, 120)
+    upper_green = (90, 250, 256)
+
+    UDP_PORT = 5465
+    BUFFER_SIZE = 1024
+    MESSAGE1 = 'Y'
+    MESSAGE2 = 'N'
+    UDP_IP = '10.140.123.54'
+
+    sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+
     ip = ''
 
     try:
@@ -93,13 +124,42 @@ def realmain():
         while True:
 
             img = cap.read()
-            img1 = imutils.resize(img, width=320,height=240)
-            img2 = cv2.GaussianBlur(img1, (5, 5), 0)
-            frame = cv2.Canny(img2, 35, 125)
-            
-	    if(i==0):
+            frame = imutils.resize(img, width=320,height=240)
+
+
+            frame1 = imutils.resize(img, width=600)
+            img = cv2.GaussianBlur(frame1, (5, 5), 0)
+            hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
+            # construct a mask for the color "green", then perform
+            # a series of dilations and erosions to remove any small
+            # blobs left in the mask
+            mask = cv2.inRange(hsv, lower_green, upper_green)
+            edged = cv2.Canny(mask, 35, 125)
+
+            # find contours in the mask and initialize the current
+            # (x, y) center of the ball
+            im2, cnts, hierarchy = cv2.findContours(edged.copy(), cv2.RETR_LIST, cv2.CHAIN_APPROX_NONE)
+
+            if (len(cnts) > 1):
+                area, place = contourArea(cnts)
+                if (area != 0):
+                    c = cnts[place]
+                    # cv2.drawContours(frame, c, -1, (0, 0, 255), 3)
+                    M = cv2.moments(c)
+                    cx = int(M['m10'] / M['m00'])  # Center of MASS Coordinates
+                    cy = int(M['m01'] / M['m00'])
+                    rect = cv2.minAreaRect(c)
+                    length = rect[1][1]
+
+                    sock.sendto(('Y ' + str(cx) + ' ' + str(cy) + ' ' + "{0:.2f}".format(length)).encode(),
+                                (UDP_IP, UDP_PORT))
+                    # sock.sendto(('Y').encode(),(UDP_IP,UDP_PORT))
+            else:
+                sock.sendto('N'.encode(), (UDP_IP, UDP_PORT))
+
+            if (i == 0):
                 target.start()
-            i+=1
+            i += 1
     except KeyboardInterrupt:
         sys.exit()
 
