@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="95e0bc96-810b-42b8-b555-6d102ed52a63" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Combined/visionServer.py" afterPath="$PROJECT_DIR$/Combined/visionServer.py" />
     </list>
     <ignored path="Windows-RPI-Vision-Framework.iws" />
@@ -50,8 +51,8 @@
       <file leaf-file-name="visionServer.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Combined/visionServer.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="450">
-              <caret line="150" column="47" selection-start-line="150" selection-start-column="47" selection-end-line="150" selection-end-column="47" />
+            <state relative-caret-position="297">
+              <caret line="149" column="14" selection-start-line="149" selection-start-column="14" selection-end-line="149" selection-end-column="14" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
               </folding>
@@ -658,8 +659,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Combined/visionServer.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="150" column="47" selection-start-line="150" selection-start-column="47" selection-end-line="150" selection-end-column="47" />
+        <state relative-caret-position="297">
+          <caret line="149" column="14" selection-start-line="149" selection-start-column="14" selection-end-line="149" selection-end-column="14" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
           </folding>

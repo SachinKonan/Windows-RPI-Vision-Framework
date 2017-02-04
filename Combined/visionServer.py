@@ -21,10 +21,9 @@ def contourArea(contours):
     for i in range(0,len(contours)):
        area.append([cv2.contourArea(contours[i]),i])
 
-    #area.sort()
+    area.sort()
 
-
-    return area
+    return area[len(area) - 1]
 
 
 class CamHandler(BaseHTTPRequestHandler):
