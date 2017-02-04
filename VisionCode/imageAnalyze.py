@@ -27,10 +27,10 @@ def contourArea(contours):
     else:
         return 0
 
-lower_green = (55, 150, 110)
-upper_green = (90, 256, 180)
+lower_green = (55, 150, 70)
+upper_green = (90, 256, 256)
 
-img = cv2.imread('Target2.png')
+img = cv2.imread('Target3.png')
 img = cv2.GaussianBlur(img, (5, 5), 0)
 hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
 mask = cv2.inRange(hsv, lower_green, upper_green)
@@ -54,7 +54,7 @@ cv2.drawContours(img, [box], 0, (255, 0, 0), 2)
 
 cv2.namedWindow("Image w Contours")
 cv2.setMouseCallback("Image w Contours", onmouse)
-cv2.imshow('Image w Contours', edged)
+cv2.imshow('Image w Contours', mask)
 
 cv2.waitKey(0)
 cv2.destroyAllWindows()

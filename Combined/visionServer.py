@@ -100,8 +100,8 @@ class WebcamVideoStream:
 
 def realmain():
     global frame
-    lower_green = (55, 150, 60)
-    upper_green = (90, 256, 180)
+    lower_green = (55, 150, 70)
+    upper_green = (90, 256, 256)
 
     UDP_PORT = 5465
     BUFFER_SIZE = 1024
