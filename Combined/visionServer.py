@@ -22,7 +22,7 @@ def contourArea(contours):
        area.append([cv2.contourArea(contours[i]),i])
 
     area.sort()
-    if(area[len(area) - 1] >= 7 * area[0]):
+    if(area[len(area) - 1] >= 1200):
         return area[len(area)-1]
 
     else: return 0
@@ -108,7 +108,7 @@ def realmain():
     BUFFER_SIZE = 1024
     MESSAGE1 = 'Y'
     MESSAGE2 = 'N'
-    UDP_IP = '10.140.121.174'
+    UDP_IP = ' 10.140.121.174'
 
     sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 
@@ -125,7 +125,6 @@ def realmain():
 
             img = cap.read()
             t = imutils.resize(img, width=320,height=240)
-            #frame = t
             #frame1 = imutils.resize(img, width=600)
             img1 = cv2.GaussianBlur(t, (5, 5), 0)
 
@@ -139,23 +138,23 @@ def realmain():
             # a series of dilations and erosions to remove any small
             # blobs left in the mask
             mask = cv2.inRange(hsv, lower_green, upper_green)
-            frame = cv2.Canny(mask, 35, 125)
+            edged = cv2.Canny(mask, 35, 125)
 
             # find contours in the mask and initialize the current
             # (x, y) center of the ball
-            #im2, cnts, hierarchy = cv2.findContours(edged.copy(), cv2.RETR_LIST, cv2.CHAIN_APPROX_NONE)
+            im2, cnts, hierarchy = cv2.findContours(edged.copy(), cv2.RETR_LIST, cv2.CHAIN_APPROX_NONE)
 
-            """
+
             if (len(cnts) > 1):
                 area, place = contourArea(cnts)
                 if (area != 0):
                     c = cnts[place]
 
-                    M = cv2.moments(c)
                     rect = cv2.minAreaRect(c)
                     box = cv2.boxPoints(rect)
                     box = np.int0(box)
-                    cv2.drawContours(frame, [box], 0, (255, 0, 0), 2)
+                    cv2.drawContours(t, [box], 0, (255, 0, 0), 2)
+                    frame = t
 
                     # cv2.drawContours(frame, c, -1, (0, 0, 255), 3)
                     M = cv2.moments(c)
@@ -169,7 +168,7 @@ def realmain():
                     # sock.sendto(('Y').encode(),(UDP_IP,UDP_PORT))
             else:
                 sock.sendto('N'.encode(), (UDP_IP, UDP_PORT))
-            """
+
             if (i == 0):
                 target.start()
             i += 1
