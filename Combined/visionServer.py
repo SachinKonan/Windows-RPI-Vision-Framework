@@ -143,11 +143,12 @@ def realmain():
             # (x, y) center of the ball
             im2, cnts, hierarchy = cv2.findContours(edged.copy(), cv2.RETR_LIST, cv2.CHAIN_APPROX_NONE)
 
-            area,place = contourArea(cnts)
-            print(area)
-            print(place)
-            print('XXXXXXXXXXXXXXXXXXXXXXXXXXXx')
-            time.sleep(1)
+            if(len(cnts) >=1):
+                area, place = contourArea(cnts)
+
+                if(area >= 100):
+                    print(area, place)
+            time.sleep(0.1)
             """
             if (len(cnts) > 1):
                 lister = contourArea(cnts)
