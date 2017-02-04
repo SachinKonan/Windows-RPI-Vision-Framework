@@ -161,10 +161,10 @@ def realmain():
                     rect = cv2.minAreaRect(maxc)
                     length = rect[1][1]
 
-                    print(length)
-                    #sock.sendto(('Y ' + str(cx) + ' ' + str(cy) + ' ' + "{0:.2f}".format(length)).encode(),(UDP_IP, UDP_PORT))
-            #else:
-                #sock.sendto('N'.encode(), (UDP_IP, UDP_PORT))
+                    #print(length)
+                    sock.sendto(('Y ' + str(cx) + ' ' + str(cy) + ' ' + "{0:.2f}".format(length)).encode(),(UDP_IP, UDP_PORT))
+            else:
+                sock.sendto('N'.encode(), (UDP_IP, UDP_PORT))
 
             frame = t
             """
