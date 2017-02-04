@@ -101,8 +101,8 @@ class WebcamVideoStream:
 
 def realmain():
     global frame
-    lower_green = (45, 30, 120)
-    upper_green = (90, 256, 256)
+    lower_green = (55, 130, 20)
+    upper_green = (90, 256, 180)
 
     UDP_PORT = 5465
     BUFFER_SIZE = 1024
@@ -125,22 +125,21 @@ def realmain():
 
             img = cap.read()
             t = imutils.resize(img, width=320,height=240)
-            frame = t
 
             #frame1 = imutils.resize(img, width=600)
-            img = cv2.GaussianBlur(t, (5, 5), 0)
+            img1 = cv2.GaussianBlur(t, (5, 5), 0)
 
             #frame = imutils.resize(img, width=320,height=240)
 
 
             #frame1 = imutils.resize(img, width=600)
-            img = cv2.GaussianBlur(img, (5, 5), 0)
-            hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
+            img2 = cv2.GaussianBlur(img1, (5, 5), 0)
+            hsv = cv2.cvtColor(img2, cv2.COLOR_BGR2HSV)
             # construct a mask for the color "green", then perform
             # a series of dilations and erosions to remove any small
             # blobs left in the mask
             mask = cv2.inRange(hsv, lower_green, upper_green)
-            edged = cv2.Canny(mask, 35, 125)
+            frame,edged = cv2.Canny(mask, 35, 125)
 
             # find contours in the mask and initialize the current
             # (x, y) center of the ball
@@ -174,6 +173,7 @@ def realmain():
             if (i == 0):
                 target.start()
             i += 1
+
     except KeyboardInterrupt:
         cap.stop()
         target.join()

@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="95e0bc96-810b-42b8-b555-6d102ed52a63" name="Default" comment="" />
+    <list default="true" id="95e0bc96-810b-42b8-b555-6d102ed52a63" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/VisionCode/Target.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Combined/visionServer.py" afterPath="$PROJECT_DIR$/Combined/visionServer.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/VisionCode/imageAnalyze.py" afterPath="$PROJECT_DIR$/VisionCode/imageAnalyze.py" />
+    </list>
     <ignored path="Windows-RPI-Vision-Framework.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -36,8 +41,8 @@
       <file leaf-file-name="pyImage.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Combined/pyImage.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="648">
-              <caret line="120" column="26" selection-start-line="120" selection-start-column="19" selection-end-line="120" selection-end-column="26" />
+            <state relative-caret-position="747">
+              <caret line="133" column="31" selection-start-line="133" selection-start-column="31" selection-end-line="133" selection-end-column="31" />
               <folding>
                 <element signature="e#0#29#0" expanded="true" />
               </folding>
@@ -48,8 +53,8 @@
       <file leaf-file-name="visionServer.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Combined/visionServer.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="231">
-              <caret line="142" column="13" selection-start-line="142" selection-start-column="13" selection-end-line="142" selection-end-column="13" />
+            <state relative-caret-position="516">
+              <caret line="157" column="69" selection-start-line="154" selection-start-column="20" selection-end-line="157" selection-end-column="69" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
               </folding>
@@ -60,9 +65,11 @@
       <file leaf-file-name="imageAnalyze.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/VisionCode/imageAnalyze.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="759">
+              <caret line="23" column="18" selection-start-line="23" selection-start-column="18" selection-end-line="23" selection-end-column="18" />
+              <folding>
+                <element signature="e#0#10#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -85,6 +92,7 @@
         <option value="$PROJECT_DIR$/HttpServer/httpserver.py" />
         <option value="$PROJECT_DIR$/Combined/pyImage.py" />
         <option value="$PROJECT_DIR$/Combined/visionServer.py" />
+        <option value="$PROJECT_DIR$/VisionCode/hist.py" />
         <option value="$PROJECT_DIR$/VisionCode/imageAnalyze.py" />
       </list>
     </option>
@@ -164,28 +172,14 @@
     <property name="settings.editor.splitter.proportion" value="0.2" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Sachin Konan\Documents\FRC2017\Windows-RPI-Vision-Framework\VisionCode" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Sachin Konan\Documents\FRC2017\Windows-RPI-Vision-Framework\Combined" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.pyImage (1)">
-    <configuration default="false" name="httpserver" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/HttpServer" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="Windows-RPI-Vision-Framework" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/HttpServer/httpserver.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <method />
-    </configuration>
+  <component name="RunManager" selected="Python.imageAnalyze">
     <configuration default="false" name="visionServer" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -233,6 +227,40 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="Windows-RPI-Vision-Framework" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Combined/pyImage.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="imageAnalyze" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/VisionCode" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Windows-RPI-Vision-Framework" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/VisionCode/imageAnalyze.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="hist" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/VisionCode" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Windows-RPI-Vision-Framework" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/VisionCode/hist.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
@@ -371,18 +399,20 @@
       <option name="USE_KEYWORD" value="false" />
       <method />
     </configuration>
-    <list size="4">
-      <item index="0" class="java.lang.String" itemvalue="Python.httpserver" />
-      <item index="1" class="java.lang.String" itemvalue="Python.visionServer" />
-      <item index="2" class="java.lang.String" itemvalue="Python.pyImage" />
-      <item index="3" class="java.lang.String" itemvalue="Python.pyImage (1)" />
+    <list size="5">
+      <item index="0" class="java.lang.String" itemvalue="Python.visionServer" />
+      <item index="1" class="java.lang.String" itemvalue="Python.pyImage" />
+      <item index="2" class="java.lang.String" itemvalue="Python.pyImage (1)" />
+      <item index="3" class="java.lang.String" itemvalue="Python.imageAnalyze" />
+      <item index="4" class="java.lang.String" itemvalue="Python.hist" />
     </list>
     <recent_temporary>
-      <list size="4">
-        <item index="0" class="java.lang.String" itemvalue="Python.pyImage (1)" />
-        <item index="1" class="java.lang.String" itemvalue="Python.pyImage" />
-        <item index="2" class="java.lang.String" itemvalue="Python.visionServer" />
-        <item index="3" class="java.lang.String" itemvalue="Python.httpserver" />
+      <list size="5">
+        <item index="0" class="java.lang.String" itemvalue="Python.imageAnalyze" />
+        <item index="1" class="java.lang.String" itemvalue="Python.hist" />
+        <item index="2" class="java.lang.String" itemvalue="Python.pyImage (1)" />
+        <item index="3" class="java.lang.String" itemvalue="Python.pyImage" />
+        <item index="4" class="java.lang.String" itemvalue="Python.visionServer" />
       </list>
     </recent_temporary>
   </component>
@@ -415,7 +445,7 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3998938" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -541,31 +571,48 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Combined/pyImage.py">
+    <entry file="file://$PROJECT_DIR$/VisionCode/hist.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="648">
-          <caret line="120" column="26" selection-start-line="120" selection-start-column="19" selection-end-line="120" selection-end-column="26" />
-          <folding>
-            <element signature="e#0#29#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Combined/visionServer.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="142" column="13" selection-start-line="142" selection-start-column="13" selection-end-line="142" selection-end-column="13" />
+        <state relative-caret-position="561">
+          <caret line="17" column="10" selection-start-line="17" selection-start-column="10" selection-end-line="17" selection-end-column="10" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Combined/visionServer.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="516">
+          <caret line="157" column="69" selection-start-line="154" selection-start-column="20" selection-end-line="157" selection-end-column="69" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Combined/pyImage.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="747">
+          <caret line="133" column="31" selection-start-line="133" selection-start-column="31" selection-end-line="133" selection-end-column="31" />
+          <folding>
+            <element signature="e#0#29#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/VisionCode/Target.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/VisionCode/imageAnalyze.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="759">
+          <caret line="23" column="18" selection-start-line="23" selection-start-column="18" selection-end-line="23" selection-end-column="18" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
