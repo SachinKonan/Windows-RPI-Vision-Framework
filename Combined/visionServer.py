@@ -159,10 +159,11 @@ def realmain():
                     cx = int(M['m10'] / M['m00'])  # Center of MASS Coordinates
                     cy = int(M['m01'] / M['m00'])
                     rect = cv2.minAreaRect(maxc)
-                    length = rect[1][1]
+                    length = rect[1][0]
+                    width = rect[1][1]
 
                     #print(length)
-                    sock.sendto(('Y ' + str(cx) + ' ' + str(cy) + ' ' + "{0:.2f}".format(length)).encode(),(UDP_IP, UDP_PORT))
+                    sock.sendto(('Y ' + str(cx) + ' ' + str(cy) + ' ' + "{0:.2f}".format(length) + ' ' + "{0:.2f}".format(width)).encode(),(UDP_IP, UDP_PORT))
             else:
                 sock.sendto('N'.encode(), (UDP_IP, UDP_PORT))
 
