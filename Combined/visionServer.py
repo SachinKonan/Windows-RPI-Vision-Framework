@@ -147,8 +147,15 @@ def realmain():
                 area, place = contourArea(cnts)
 
                 if(area >= 100):
-                    print(area, place)
-            time.sleep(0.1)
+                    maxc = cnts[place]
+
+
+                    rect = cv2.minAreaRect(maxc)
+                    box = cv2.boxPoints(rect)
+                    box = np.int0(box)
+                    cv2.drawContours(t, [box], 0, (255, 0, 0), 2)
+
+            frame = t
             """
             if (len(cnts) > 1):
                 lister = contourArea(cnts)
