@@ -124,10 +124,10 @@ def realmain():
         while True:
 
             img = cap.read()
-            frame = imutils.resize(img, width=320,height=240)
+            t = imutils.resize(img, width=320,height=240)
 
             #frame1 = imutils.resize(img, width=600)
-            img1 = cv2.GaussianBlur(frame, (5, 5), 0)
+            img1 = cv2.GaussianBlur(t, (5, 5), 0)
 
             #frame = imutils.resize(img, width=320,height=240)
 
@@ -139,7 +139,7 @@ def realmain():
             # a series of dilations and erosions to remove any small
             # blobs left in the mask
             mask = cv2.inRange(hsv, lower_green, upper_green)
-            edged = cv2.Canny(mask, 35, 125)
+            frame = cv2.Canny(mask, 35, 125)
 
             # find contours in the mask and initialize the current
             # (x, y) center of the ball
