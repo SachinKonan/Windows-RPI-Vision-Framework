@@ -23,6 +23,7 @@ def contourArea(contours):
 
     area.sort()
     if(area[len(area) - 1][0] >= 1200):
+        print(area[len(area)-1])
         return area[len(area)-1]
 
     else: return 0
