@@ -14,8 +14,6 @@ import socket
 #workon cv
 #python '/home/pi/Documents/PythonProjects/pyImage.py' or wherever u have pyImage saved
 
-from threading import Thread
-import cv2
 def contourArea(contours):
     area = []
     for i in range(0,len(contours)):
@@ -108,7 +106,7 @@ def realmain():
     BUFFER_SIZE = 1024
     MESSAGE1 = 'Y'
     MESSAGE2 = 'N'
-    UDP_IP = '10.140.123.54'
+    UDP_IP = '10.140.121.174'
 
     sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 
