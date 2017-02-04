@@ -153,9 +153,9 @@ def realmain():
 
             """
             if(len(cnts) >= 1):
-                place = contourArea(cnts)
-                for i in place:
-                    print(place)
+                pincher = contourArea(cnts)
+                area = pincher[0]
+                place = pincer[1]
 
             if (len(cnts) > 1):
                 lister = contourArea(cnts)
