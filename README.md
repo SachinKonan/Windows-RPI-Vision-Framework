@@ -8,17 +8,37 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Prerequisites
 
-What things you need to install the software and how to install them
+
+1. OpenCV on Deployed System (Raspberry PI)
+ - I suggest you follow this tutorial: http://www.pyimagesearch.com/2016/04/18/install-guide-raspberry-pi-3-raspbian-jessie-opencv-3/. Make sure that in the last step, you compile the code with one core; it never works with all 4.
+ ```
+ The command is: make
+ Not: make-j4
+ ```
+
+2. OpenCV on Computer
+- As I am a Python 3 advocate, you will need to install OpenCV3 on your desktop. Not sure about MAC Users, but for Ubuntu and Windows users you need to download the wheel file from this link: http://www.lfd.uci.edu/~gohlke/pythonlibs/. Control-F on the webpage for the OpenCV package and download the right version based on the bit number for PYTHON not Windows. IF you have 32 bit python on 64 bit windows, still download the 32 bit version. You can get the contrib version if you want, I think I have that, but it shouldn't matter for this application. Once downloaded, open Command Prompt from wherever you have stored your wheel (probably in downloads) and type in:
 
 ```
-Give examples
+pip install opencv_python_........ <--- Thats the rest of your wheel
 ```
+
+3. Download Numpy
+- On the RPI, you will want to go into the virtual environment you created in Step 1 by typing:
+```
+source ~/.profile
+workon cv
+```
+Then typing:
+```
+sudo pip install numpy
+```
+4. Download Putty on Control computer
+- Download Putty.exe from this link: http://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html, and follow the relatively simple install.
 
 ### Installing
 
-A step by step series of examples that tell you have to get a development env running
 
-Say what the step will be
 
 ```
 Give the example
