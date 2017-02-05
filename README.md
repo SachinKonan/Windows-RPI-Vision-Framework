@@ -17,24 +17,24 @@ These instructions will get you a copy of the project up and running on your loc
  ```
 
 2. OpenCV on Computer
-- As I am a Python 3 advocate, you will need to install OpenCV3 on your desktop. Not sure about MAC Users, but for Ubuntu and Windows users you need to download the wheel file from this link: http://www.lfd.uci.edu/~gohlke/pythonlibs/. Control-F on the webpage for the OpenCV package and download the right version based on the bit number for PYTHON not Windows. IF you have 32 bit python on 64 bit windows, still download the 32 bit version. You can get the contrib version if you want, I think I have that, but it shouldn't matter for this application. Once downloaded, open Command Prompt from wherever you have stored your wheel (probably in downloads) and type in:
+ - As I am a Python 3 advocate, you will need to install OpenCV3 on your desktop. Not sure about MAC Users, but for Ubuntu and Windows users you need to download the wheel file from this link: http://www.lfd.uci.edu/~gohlke/pythonlibs/. Control-F on the webpage for the OpenCV package and download the right version based on the bit number for PYTHON not Windows. IF you have 32 bit python on 64 bit windows, still download the 32 bit version. You can get the contrib version if you want, I think I have that, but it shouldn't matter for this application. Once downloaded, open Command Prompt from wherever you have stored your wheel (probably in downloads) and type in:
 
-```
-pip install opencv_python_........ <--- Thats the rest of your wheel
-```
+ ```
+ pip install opencv_python_........ <--- Thats the rest of your wheel
+ ```
 
 3. Download Numpy
-- On the RPI, you will want to go into the virtual environment you created in Step 1 by typing:
-```
-source ~/.profile
-workon cv
-```
-Then typing:
-```
-sudo pip install numpy
-```
+ - On the RPI, you will want to go into the virtual environment you created in Step 1 by typing:
+ ```
+ source ~/.profile
+ workon cv
+ ```
+ Then typing:
+ ```
+ sudo pip install numpy
+ ```
 4. Download Putty on Control computer
-- Download Putty.exe from this link: http://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html, and follow the relatively simple install.
+ - Download Putty.exe from this link: http://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html, and follow the relatively simple install.
 
 ### Installing
 
