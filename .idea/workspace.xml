@@ -2,7 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="95e0bc96-810b-42b8-b555-6d102ed52a63" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Combined/gui/aesthetic.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Combined/gui/imageGrabTkinter.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Combined/imageGrab.py" afterPath="$PROJECT_DIR$/Combined/imageGrab.py" />
     </list>
     <ignored path="Windows-RPI-Vision-Framework.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -38,8 +41,8 @@
       <file leaf-file-name="pyImage.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Combined/pyImage.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2079">
-              <caret line="69" column="0" selection-start-line="69" selection-start-column="0" selection-end-line="73" selection-end-column="8" />
+            <state relative-caret-position="363">
+              <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="55" selection-end-column="8" />
               <folding>
                 <element signature="e#0#29#0" expanded="true" />
               </folding>
@@ -59,11 +62,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="testVisionServer.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="testVisionServer.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Combined/testVisionServer.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="957">
-              <caret line="138" column="47" selection-start-line="138" selection-start-column="47" selection-end-line="138" selection-end-column="47" />
+            <state relative-caret-position="429">
+              <caret line="53" column="73" selection-start-line="53" selection-start-column="40" selection-end-line="53" selection-end-column="73" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
               </folding>
@@ -74,12 +77,31 @@
       <file leaf-file-name="imageGrab.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Combined/imageGrab.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="792">
-              <caret line="24" column="13" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
+            <state relative-caret-position="330">
+              <caret line="10" column="41" selection-start-line="10" selection-start-column="41" selection-end-line="10" selection-end-column="41" />
               <folding>
                 <element signature="e#0#17#0" expanded="true" />
               </folding>
             </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="imageGrabTkinter.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Combined/gui/imageGrabTkinter.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="484">
+              <caret line="64" column="0" selection-start-line="64" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
+              <folding>
+                <element signature="e#0#20#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="aesthetic.png" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Combined/gui/aesthetic.png">
+          <provider selected="true" editor-type-id="images">
+            <state />
           </provider>
         </entry>
       </file>
@@ -115,8 +137,11 @@
         <option value="$PROJECT_DIR$/HttpServer/httpserver.py" />
         <option value="$PROJECT_DIR$/VisionCode/imageAnalyze.py" />
         <option value="$PROJECT_DIR$/Combined/visionServer.py" />
-        <option value="$PROJECT_DIR$/Combined/imageGrab.py" />
         <option value="$PROJECT_DIR$/Combined/testVisionServer.py" />
+        <option value="$PROJECT_DIR$/Combined/imageGrab.py" />
+        <option value="$PROJECT_DIR$/Combined/sampleGUI.py" />
+        <option value="$PROJECT_DIR$/Combined/imageGrabTkinter.py" />
+        <option value="$PROJECT_DIR$/Combined/gui/imageGrabTkinter.py" />
       </list>
     </option>
   </component>
@@ -151,7 +176,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -159,20 +183,6 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="Windows-RPI-Vision-Framework" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Windows-RPI-Vision-Framework" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Windows-RPI-Vision-Framework" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="VisionCode" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -199,8 +209,27 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Windows-RPI-Vision-Framework" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Windows-RPI-Vision-Framework" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Combined" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="gui" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -209,67 +238,17 @@
     <property name="settings.editor.splitter.proportion" value="0.2" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Sachin Konan\Documents\FRC2017\Windows-RPI-Vision-Framework\Combined\gui" />
+      <recent name="C:\Users\Sachin Konan\Documents\FRC2017\Windows-RPI-Vision-Framework\VisionCode" />
+      <recent name="C:\Users\Sachin Konan\Documents\FRC2017\Windows-RPI-Vision-Framework\Target3" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Sachin Konan\Documents\FRC2017\Windows-RPI-Vision-Framework\VisionCode" />
       <recent name="C:\Users\Sachin Konan\Documents\FRC2017\Windows-RPI-Vision-Framework\Combined" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Sachin Konan\Documents\FRC2017\Windows-RPI-Vision-Framework\VisionCode" />
-      <recent name="C:\Users\Sachin Konan\Documents\FRC2017\Windows-RPI-Vision-Framework\Target3" />
-    </key>
   </component>
-  <component name="RunManager" selected="Python.imageGrab">
-    <configuration default="false" name="visionServer" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Combined" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="Windows-RPI-Vision-Framework" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Combined/visionServer.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <method />
-    </configuration>
-    <configuration default="false" name="imageAnalyze" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/VisionCode" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="Windows-RPI-Vision-Framework" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/VisionCode/imageAnalyze.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <method />
-    </configuration>
-    <configuration default="false" name="hist" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/VisionCode" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="Windows-RPI-Vision-Framework" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/VisionCode/hist.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <method />
-    </configuration>
+  <component name="RunManager" selected="Python.imageGrabTkinter (1)">
     <configuration default="false" name="testVisionServer" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -300,6 +279,57 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="Windows-RPI-Vision-Framework" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Combined/imageGrab.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="imageGrabTkinter" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Combined" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Windows-RPI-Vision-Framework" />
+      <option name="SCRIPT_NAME" value="C:\Users\Sachin Konan\Documents\FRC2017\Windows-RPI-Vision-Framework\Combined\gui\imageGrabTkinter.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="sampleGUI" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Combined" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Windows-RPI-Vision-Framework" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Combined/sampleGUI.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="imageGrabTkinter (1)" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Combined/gui" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Windows-RPI-Vision-Framework" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Combined/gui/imageGrabTkinter.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
@@ -439,19 +469,19 @@
       <method />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="Python.visionServer" />
-      <item index="1" class="java.lang.String" itemvalue="Python.imageAnalyze" />
-      <item index="2" class="java.lang.String" itemvalue="Python.hist" />
-      <item index="3" class="java.lang.String" itemvalue="Python.testVisionServer" />
-      <item index="4" class="java.lang.String" itemvalue="Python.imageGrab" />
+      <item index="0" class="java.lang.String" itemvalue="Python.testVisionServer" />
+      <item index="1" class="java.lang.String" itemvalue="Python.imageGrab" />
+      <item index="2" class="java.lang.String" itemvalue="Python.imageGrabTkinter" />
+      <item index="3" class="java.lang.String" itemvalue="Python.sampleGUI" />
+      <item index="4" class="java.lang.String" itemvalue="Python.imageGrabTkinter (1)" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.testVisionServer" />
-        <item index="1" class="java.lang.String" itemvalue="Python.imageGrab" />
-        <item index="2" class="java.lang.String" itemvalue="Python.imageAnalyze" />
-        <item index="3" class="java.lang.String" itemvalue="Python.visionServer" />
-        <item index="4" class="java.lang.String" itemvalue="Python.hist" />
+        <item index="0" class="java.lang.String" itemvalue="Python.imageGrabTkinter (1)" />
+        <item index="1" class="java.lang.String" itemvalue="Python.imageGrabTkinter" />
+        <item index="2" class="java.lang.String" itemvalue="Python.testVisionServer" />
+        <item index="3" class="java.lang.String" itemvalue="Python.sampleGUI" />
+        <item index="4" class="java.lang.String" itemvalue="Python.imageGrab" />
       </list>
     </recent_temporary>
   </component>
@@ -510,6 +540,66 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/HttpServer/httpserver.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2475">
+          <caret line="77" column="0" selection-start-line="77" selection-start-column="0" selection-end-line="77" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Combined/pyImage.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2079">
+          <caret line="69" column="0" selection-start-line="69" selection-start-column="0" selection-end-line="73" selection-end-column="8" />
+          <folding>
+            <element signature="e#0#29#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Combined/visionServer.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Combined/testVisionServer.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Combined/imageGrab.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="693">
+          <caret line="24" column="13" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
+          <folding>
+            <element signature="e#0#17#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/VisionCode/imageAnalyze.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="858">
+          <caret line="29" column="0" selection-start-line="29" selection-start-column="0" selection-end-line="30" selection-end-column="28" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/HttpServer/httpserver.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2475">
@@ -769,26 +859,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Combined/visionServer.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
-          <folding>
-            <element signature="e#0#10#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Combined/pyImage.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2079">
-          <caret line="69" column="0" selection-start-line="69" selection-start-column="0" selection-end-line="73" selection-end-column="8" />
-          <folding>
-            <element signature="e#0#29#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/VisionCode/imageAnalyze.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="858">
@@ -799,22 +869,65 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Combined/imageGrab.py">
+    <entry file="file://$PROJECT_DIR$/Combined/pyImage.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="792">
-          <caret line="24" column="13" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
+        <state relative-caret-position="363">
+          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="55" selection-end-column="8" />
           <folding>
-            <element signature="e#0#17#0" expanded="true" />
+            <element signature="e#0#29#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Combined/sampleGUI.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret line="9" column="72" selection-start-line="9" selection-start-column="72" selection-end-line="9" selection-end-column="72" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Combined/visionServer.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="297">
+          <caret line="18" column="13" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Combined/testVisionServer.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="957">
-          <caret line="138" column="47" selection-start-line="138" selection-start-column="47" selection-end-line="138" selection-end-column="47" />
+        <state relative-caret-position="429">
+          <caret line="53" column="73" selection-start-line="53" selection-start-column="40" selection-end-line="53" selection-end-column="73" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Combined/imageGrab.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="330">
+          <caret line="10" column="41" selection-start-line="10" selection-start-column="41" selection-end-line="10" selection-end-column="41" />
+          <folding>
+            <element signature="e#0#17#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Combined/gui/aesthetic.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Combined/gui/imageGrabTkinter.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="484">
+          <caret line="64" column="0" selection-start-line="64" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#20#0" expanded="true" />
           </folding>
         </state>
       </provider>

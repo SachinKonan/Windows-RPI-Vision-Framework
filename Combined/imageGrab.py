@@ -9,6 +9,8 @@ def onmouse(k, x, y, s, p):
 
 
 url = 'http://localhost:9090/stream.mjpg'
+
+
 cap = cv2.VideoCapture(url)
 
 while True:
