@@ -9,9 +9,6 @@ import matplotlib.pyplot as plt
 import threading
 from threading import Thread
 
-style.use("ggplot")
-
-matplotlib.use("TkAgg")
 
 large_font = ("Verdana", 12)
 small_font = ("Verdana", 8)
