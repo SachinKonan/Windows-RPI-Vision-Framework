@@ -44,6 +44,12 @@ class StartPage(tk.Frame):
 
         button1 = ttk.Button(self, text = "Visit Stream", command=lambda:controller.show_frame(PageOne))
         button1.pack()
+        im = Image.open("robot.jpg")
+        photo = ImageTk.PhotoImage(im)
+
+        self.labelImage = tk.Label(self, image=photo)
+        self.labelImage.image = photo  # keep a reference!
+        self.labelImage.pack()
 
 
 class PageOne(tk.Frame):
