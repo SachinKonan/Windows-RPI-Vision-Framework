@@ -1,18 +1,13 @@
 import tkinter as tk
 from tkinter import ttk
-from tkinter import Entry
 import matplotlib
-import matplotlib.pylab as plt
-from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg, NavigationToolbar2TkAgg
-from matplotlib.figure import Figure
 from matplotlib import style
-import numpy as np
-import time
-import sys
-from threading import Thread
 from PIL import Image, ImageTk
-from io import BytesIO
-
+import time
+import cv2 as cv2
+import matplotlib.pyplot as plt
+import threading
+from threading import Thread
 
 style.use("ggplot")
 
@@ -41,13 +36,10 @@ class MainGui(tk.Tk):
         frame = self.frames[cont]
         frame.tkraise()
 
-def qf(sting):
-    print(sting)
-
 class StartPage(tk.Frame):
     def __init__(self, parent, controller):
         tk.Frame.__init__(self,parent)
-        label = tk.Label(self,text = "Start Page", font = large_font)
+        label = tk.Label(self,text = "FRC Camera Streamer", font = large_font)
         label.pack(pady = 10, padx = 10)
 
         button1 = ttk.Button(self, text = "Visit Stream", command=lambda:controller.show_frame(PageOne))
@@ -63,17 +55,59 @@ class PageOne(tk.Frame):
         button = ttk.Button(self, text = "Back to Home", command=lambda:controller.show_frame(StartPage))
         button.pack()
 
-        button1 = ttk.Button(self, text = "Start Stream", command = self.nuthin)
-        button1.pack()
+        self.statuslabel = tk.Label(self,text = "STATUS IS: Not streaming", font=small_font)
+        self.statuslabel.pack()
 
         im = Image.open("aesthetic.png")
-        image = ImageTk.PhotoImage(im)
-        label = tk.Label(image=image)
-        label.pack()
+        photo = ImageTk.PhotoImage(im)
 
-    def nuthin(self):
-        pass
+        self.labelImage = tk.Label(self, image=photo)
+        self.labelImage.image = photo  # keep a reference!
+        self.labelImage.pack()
 
+        frame = tk.Frame(self)
+        frame.pack(side=tk.BOTTOM, fill=tk.BOTH)
+
+        chan1 = ttk.Button(frame, text="Start Stream ", command= self.startStream)
+        chan1.pack(side= tk.LEFT,pady=20, padx=20)
+
+        chan2 = ttk.Button(frame, text="Stop Stream", command= self.stopStream)
+        chan2.pack(side= tk.RIGHT,pady=20, padx=20)
+
+        self.url = 'http://localhost:9090/stream.mjpg'
+        self.cap = None
+    def startStream(self):
+
+        self.statuslabel['text'] = 'STATUS: Starting Server'
+        self.cap = cv2.VideoCapture(self.url)
+
+        if (self.cap.isOpened()):
+            self.statuslabel['text'] = 'STATUS: MJPEG IS UP'
+            self.repeatShow()
+        else:
+            self.statuslabel['text'] = 'STATUS: MJPEG IS DOWN'
+
+    def repeatShow(self):
+        if(self.cap.isOpened()):
+            ret,img = self.cap.read()
+
+            image = Image.fromarray(img)
+            image1 = ImageTk.PhotoImage(image)
+            self.labelImage['image']=image1
+            self.labelImage.image = image1
+        else:
+            im = Image.open("aesthetic.png")
+            photo = ImageTk.PhotoImage(im)
+
+            self.labelImage['image'] = photo
+            self.labelImage.image = photo
+            return
+
+        self.after(ms=1, func=lambda: self.repeatShow())
+
+    def stopStream(self):
+        self.statuslabel['text'] = 'STATUS: LEFT Ongoing STREAM'
+        self.cap.release()
 
 
 app = MainGui()

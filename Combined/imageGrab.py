@@ -1,7 +1,9 @@
 import cv2 as cv2
 import time
 import requests
-import urllib
+from urllib import request
+from urllib.error import  URLError
+
 def onmouse(k, x, y, s, p):
     global hsv
     if k == 1:  # left mouse, print pixel at x,y
@@ -26,3 +28,14 @@ while True:
     except:
         break
 cap.release()
+
+class MjpegStream:
+    def __init__(self):
+        self.status = True
+        self.url = 'http://localhost:9090/stream.mjpg'
+        try:
+            self.cap = cv2.VideoCapture(self.url)
+        except RuntimeError:
+            self.status=False
+
+
