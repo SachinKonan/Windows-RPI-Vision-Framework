@@ -77,7 +77,7 @@ class PageOne(tk.Frame):
         chan2 = ttk.Button(frame, text="Stop Stream", command= self.stopStream)
         chan2.pack(side= tk.RIGHT,pady=20, padx=20)
 
-        self.url = 'http://localhost:9090/stream.mjpg'
+        self.url = 'http://10.15.17.215:9090/stream.mjpg'
         self.cap = None
     def startStream(self):
 
