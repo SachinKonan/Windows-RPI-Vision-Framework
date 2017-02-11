@@ -1,31 +1,51 @@
 import serial
 import time
+from threading import Thread
 
-port = '/dev/ttyUSB0'
-n = 1999
-N = n * 2
-x = [0 for h in range(0,N)]
-radarData = [0 for h in range(0,n)]
-timeData = [0 for h in range(0,n)]
-ser = serial.Serial(port,9600)
-time.sleep(2)
+#port = '/dev/ttyUSB0'
 
-if(input("Do you want to start communication?") == 'y'):
-    print("Ok Im Starting Serial COmmunicatiton")
-    if(ser.isOpen):
-        for i in range(0,N):
-            ser.write(b"a")
-            x[i] = ser.readline()
-    else:
-        print("Serial port is not open")
+class SerialThread():
+    def __init__(self):
+        self.port = port = 'COM3'
+        self.Baud = 9600
+        self.works = True
+        self.stopped = False
+        self.value = 0
 
-samples = 0;
-samples1 = 0;
-for i in range(0,N):
-    if(i % 2 == 0):
-        radarData[samples] = float(str(x[i], 'utf-8'))* 5.0/1023.0
-        samples = samples + 1
-    else:
-        timeData[samples1] = float(str(x[i], 'utf-8'))
-        samples1 = samples1 + 1
+        self.ser = serial.Serial(port,self.Baud)
 
+        time.sleep(1)
+
+    def start(self):
+        Thread(target=self.update, args = ()).start()
+        return self
+
+    def update(self):
+        # keep looping infinitely until the thread is stopped
+        while True:
+            # if the thread indicator variable is set, stop the thread
+            if self.stopped:
+                self.ser.close()
+                return
+
+            if(self.ser.is_open):
+                self.value = float(str(self.ser.readline(), 'utf-8'))
+            else:
+                self.value = -1
+    def read(self):
+        return self.value
+
+    def stop(self):
+        self.stopped = True
+
+if __name__ == '__main__':
+    serialThread = SerialThread().start()
+
+    val = serialThread.read()
+    while val != -1:
+        print('Distance rn is: %s '% (val))
+
+        val = serialThread.read()
+        time.sleep(0.5)
+
+    serialThread.stop()
