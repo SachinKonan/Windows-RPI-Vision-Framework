@@ -1,12 +1,12 @@
 import serial
 import time
 from threading import Thread
-
-#port = 'COM3'
+#port = /dev/ttyAMA0
+port = 'COM3'
 
 class SerialThread():
     def __init__(self):
-        self.port = port = '/dev/ttyAMA0'
+        self.port = port
         self.Baud = 9600
         self.works = True
         self.stopped = False
