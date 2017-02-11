@@ -6,7 +6,7 @@ from threading import Thread
 
 class SerialThread():
     def __init__(self):
-        self.port = port = '/dev/ttyUSB0'
+        self.port = port = '/dev/ttyAMA0'
         self.Baud = 9600
         self.works = True
         self.stopped = False
