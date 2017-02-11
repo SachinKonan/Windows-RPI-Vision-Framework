@@ -139,7 +139,7 @@ def realmain():
             mask = cv2.inRange(hsv, lower_green, upper_green)
             edged = cv2.Canny(mask, 35, 125)
 
-            frame = t
+            frame = mask
             """
             # find contours in the mask and initialize the current
             # (x, y) center of the ball

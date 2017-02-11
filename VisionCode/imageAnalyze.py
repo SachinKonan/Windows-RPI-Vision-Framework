@@ -43,6 +43,11 @@ if(indeces[0] != -1):
     areas = [(1000,1000), (-1,-1)]
     for cnt in cnts:
         cv2.drawContours(img, cnt, -1, (0,0,255), 3)
+        areas = cv2.minAreaRect(cnt)
+        box = cv2.boxPoints(areas)
+        box = np.int0(box)
+        cv2.drawContours(img, [box], 0, (255, 0, 0), 2)
+        """
         [x,y,w,h] = cv2.minAreaRect(cnt)
         if(areas[0] < x):
             areas[0] = x
@@ -51,7 +56,7 @@ if(indeces[0] != -1):
         if(areas[2] > x + w):
             areas[2] = x+w
         if(areas[3] > y+ h):
-            areas[3] = y+h
+            areas[3] = y+h"""
 
     box = cv2.boxPoints(areas)
     box = np.int0(box)
