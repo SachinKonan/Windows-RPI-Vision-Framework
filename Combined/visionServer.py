@@ -168,7 +168,8 @@ def realmain():
 
                     widthreal = max(width,height)
                     heightreal = min(width, height)
-                    #cv2.putText(t, '%s in.' % (round(distance,2)), (10, 400), font, 1.5, (0, 0, 255), 3)
+                    distance = widthDistanceCalc(widthreal)
+                    cv2.putText(t, '%s in.' % (round(distance,2)), (10, 400), font, 1.5, (0, 0, 255), 3)
                     sock.sendto(('Y ' + str(cx) + ' ' + str(cy) + ' ' + "{0:.2f}".format(heightreal) + ' ' + "{0:.2f}".format(widthreal)).encode(),(UDP_IP, UDP_PORT))
             else:
                 sock.sendto('N'.encode(), (UDP_IP, UDP_PORT))
