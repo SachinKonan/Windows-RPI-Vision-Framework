@@ -26,7 +26,6 @@ while True:
         # blobs left in the mask
         mask = cv2.inRange(hsv, lower_green, upper_green)
         edged = cv2.Canny(mask, 35, 125)
-
         cv2.namedWindow("Image w Contours")
         cv2.setMouseCallback("Image w Contours", onmouse)
         cv2.imshow('Image w Contours', mask)

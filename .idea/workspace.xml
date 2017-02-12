@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="95e0bc96-810b-42b8-b555-6d102ed52a63" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Combined/imageGrab.py" afterPath="$PROJECT_DIR$/Combined/imageGrab.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Combined/imageGrab1.py" afterPath="$PROJECT_DIR$/Combined/imageGrab1.py" />
     </list>
     <ignored path="Windows-RPI-Vision-Framework.iws" />
@@ -23,7 +25,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="600">
-      <file leaf-file-name="visionServer.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="visionServer.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Combined/visionServer.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="660">
@@ -50,8 +52,8 @@
       <file leaf-file-name="imageGrab.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Combined/imageGrab.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="418">
-              <caret line="31" column="44" selection-start-line="31" selection-start-column="44" selection-end-line="31" selection-end-column="44" />
+            <state relative-caret-position="891">
+              <caret line="27" column="40" selection-start-line="27" selection-start-column="40" selection-end-line="27" selection-end-column="40" />
               <folding>
                 <element signature="e#0#17#0" expanded="true" />
               </folding>
@@ -59,25 +61,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="imageGrab1.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="imageGrab1.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Combined/imageGrab1.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="418">
-              <caret line="29" column="28" selection-start-line="29" selection-start-column="25" selection-end-line="29" selection-end-column="28" />
+            <state relative-caret-position="748">
+              <caret line="72" column="42" selection-start-line="72" selection-start-column="39" selection-end-line="72" selection-end-column="42" />
               <folding>
                 <element signature="e#0#17#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="imageGrabTkinter.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Combined/gui/imageGrabTkinter.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="825">
-              <caret line="25" column="38" selection-start-line="25" selection-start-column="38" selection-end-line="25" selection-end-column="38" />
-              <folding>
-                <element signature="e#0#20#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -86,10 +76,22 @@
       <file leaf-file-name="visionServerTwoRect.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Combined/visionServerTwoRect.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="385">
-              <caret line="200" column="20" selection-start-line="200" selection-start-column="20" selection-end-line="200" selection-end-column="65" />
+            <state relative-caret-position="319">
+              <caret line="198" column="20" selection-start-line="198" selection-start-column="20" selection-end-line="200" selection-end-column="65" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="imageGrabTkinter.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Combined/gui/imageGrabTkinter.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="165">
+              <caret line="25" column="38" selection-start-line="25" selection-start-column="38" selection-end-line="25" selection-end-column="38" />
+              <folding>
+                <element signature="e#0#20#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -98,8 +100,8 @@
       <file leaf-file-name="imageAnalyze.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/VisionCode/imageAnalyze.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="693">
-              <caret line="41" column="1" selection-start-line="41" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
+            <state relative-caret-position="-473">
+              <caret line="62" column="9" selection-start-line="62" selection-start-column="9" selection-end-line="62" selection-end-column="62" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
               </folding>
@@ -131,10 +133,10 @@
         <option value="$PROJECT_DIR$/Combined/gui/imageGrabTkinter.py" />
         <option value="$PROJECT_DIR$/VisionCode/SerialTest.py" />
         <option value="$PROJECT_DIR$/Combined/testVisionServer.py" />
-        <option value="$PROJECT_DIR$/VisionCode/imageAnalyze.py" />
-        <option value="$PROJECT_DIR$/Combined/imageGrab.py" />
         <option value="$PROJECT_DIR$/Combined/visionServer.py" />
         <option value="$PROJECT_DIR$/Combined/visionServerTwoRect.py" />
+        <option value="$PROJECT_DIR$/VisionCode/imageAnalyze.py" />
+        <option value="$PROJECT_DIR$/Combined/imageGrab.py" />
         <option value="$PROJECT_DIR$/Combined/imageGrab1.py" />
       </list>
     </option>
@@ -238,7 +240,7 @@
       <recent name="C:\Users\Sachin Konan\Documents\FRC2017\Windows-RPI-Vision-Framework\Target3" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.imageGrab">
+  <component name="RunManager" selected="Python.imageGrab1">
     <configuration default="false" name="testVisionServer" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -467,8 +469,8 @@
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.imageGrab" />
-        <item index="1" class="java.lang.String" itemvalue="Python.imageGrab1" />
+        <item index="0" class="java.lang.String" itemvalue="Python.imageGrab1" />
+        <item index="1" class="java.lang.String" itemvalue="Python.imageGrab" />
         <item index="2" class="java.lang.String" itemvalue="Python.visionServerTwoRect" />
         <item index="3" class="java.lang.String" itemvalue="Python.imageAnalyze" />
         <item index="4" class="java.lang.String" itemvalue="Python.testVisionServer" />
@@ -920,6 +922,56 @@
         <state />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Combined/gui/imageGrabTkinter.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="25" column="38" selection-start-line="25" selection-start-column="38" selection-end-line="25" selection-end-column="38" />
+          <folding>
+            <element signature="e#0#20#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/VisionCode/imageAnalyze.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-473">
+          <caret line="62" column="9" selection-start-line="62" selection-start-column="9" selection-end-line="62" selection-end-column="62" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Combined/imageGrab.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="891">
+          <caret line="27" column="40" selection-start-line="27" selection-start-column="40" selection-end-line="27" selection-end-column="40" />
+          <folding>
+            <element signature="e#0#17#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Combined/imageGrab1.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="748">
+          <caret line="72" column="42" selection-start-line="72" selection-start-column="39" selection-end-line="72" selection-end-column="42" />
+          <folding>
+            <element signature="e#0#17#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Combined/visionServerTwoRect.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="319">
+          <caret line="198" column="20" selection-start-line="198" selection-start-column="20" selection-end-line="200" selection-end-column="65" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Combined/testVisionServer.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="528">
@@ -936,56 +988,6 @@
           <caret line="150" column="38" selection-start-line="150" selection-start-column="38" selection-end-line="150" selection-end-column="38" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Combined/visionServerTwoRect.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="385">
-          <caret line="200" column="20" selection-start-line="200" selection-start-column="20" selection-end-line="200" selection-end-column="65" />
-          <folding>
-            <element signature="e#0#10#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Combined/gui/imageGrabTkinter.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="825">
-          <caret line="25" column="38" selection-start-line="25" selection-start-column="38" selection-end-line="25" selection-end-column="38" />
-          <folding>
-            <element signature="e#0#20#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/VisionCode/imageAnalyze.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="693">
-          <caret line="41" column="1" selection-start-line="41" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#10#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Combined/imageGrab.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="31" column="44" selection-start-line="31" selection-start-column="44" selection-end-line="31" selection-end-column="44" />
-          <folding>
-            <element signature="e#0#17#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Combined/imageGrab1.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="29" column="28" selection-start-line="29" selection-start-column="25" selection-end-line="29" selection-end-column="28" />
-          <folding>
-            <element signature="e#0#17#0" expanded="true" />
           </folding>
         </state>
       </provider>
