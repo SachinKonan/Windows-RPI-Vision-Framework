@@ -200,8 +200,8 @@ def realmain():
                     cv2.drawContours(t, [box], 0, (255, 0, 0), 2)
                     distance = distance_to_cam(height)
                     #'%s in. / %s m.' % (round(distance, 2), round(distance * 0.0254, 2))
-                    cv2.putText(t,'hello' , (10, 600),font, 3, (0, 0, 255), 3)
-                    sock.sendto(('Y ' + str(centerx) + ' ' + str(centery) + ' ' + "{0:.2f}".format(height)).encode(),(UDP_IP, UDP_PORT))
+                    #cv2.putText(t,'hello' , (10, 600),font, 3, (0, 0, 255), 3)
+                    sock.sendto(('Y ' + str(centerx) + ' ' + str(centery) + ' ' + "{0:.2f}".format(distance)).encode(),(UDP_IP, UDP_PORT))
                 else:
                     sock.sendto('N'.encode(), (UDP_IP, UDP_PORT))
 
