@@ -164,14 +164,15 @@ def realmain():
                     cx = int(M['m10'] / M['m00'])  # Center of MASS Coordinates
                     cy = int(M['m01'] / M['m00'])
                     rect = cv2.minAreaRect(maxc)
-                    length = rect[1][0]
+                    height = rect[1][0]
                     width = rect[1][1]
 
-                    length = min(length,width)
-                    width = max(length, width)
+                    height = min(height,width)
+                    width = max(height, width)
+
                     distance = widthDistanceCalc(width)
                     cv2.putText(t, '%s in.' % (round(distance,2)), (10, 400), font, 1.5, (0, 0, 255), 3)
-                    sock.sendto(('Y ' + str(cx) + ' ' + str(cy) + ' ' + "{0:.2f}".format(length) + ' ' + "{0:.2f}".format(width)).encode(),(UDP_IP, UDP_PORT))
+                    sock.sendto(('Y ' + str(cx) + ' ' + str(cy) + ' ' + "{0:.2f}".format(height) + ' ' + "{0:.2f}".format(width)).encode(),(UDP_IP, UDP_PORT))
             else:
                 sock.sendto('N'.encode(), (UDP_IP, UDP_PORT))
 
