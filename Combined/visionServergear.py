@@ -65,6 +65,34 @@ class CamHandler(BaseHTTPRequestHandler):
             self.wfile.write('</body></html>')
             return
 
+class CamHandlerGear(BaseHTTPRequestHandler):
+    def do_GET(self):
+        print(self.path)
+        if self.path.endswith('/stream.mjpg'):
+            self.send_response(20)
+            self.send_header('Content-type', 'multipart/x-mixed-replace; boundary=--jpgboundary')
+            self.end_headers()
+            while True:
+                try:
+
+                    if (frame1 != None):
+                        pass
+                    r, buf = cv2.imencode(".jpg", frame1)
+                    self.wfile.write("--jpgboundary\r\n".encode())
+                    self.end_headers()
+                    self.wfile.write(bytearray(buf))
+                except KeyboardInterrupt:
+                    break
+            return
+
+        if self.path.endswith('.html') or self.path == "/":
+            self.send_response(200)
+            self.send_header('Content-type', 'text/html')
+            self.end_headers()
+            self.wfile.write('<html><head></head><body>')
+            self.wfile.write('<img src="http://localhost:9090/stream.mjpg" height="480px" width="640px"/>')
+            self.wfile.write('</body></html>')
+            return
 
 class ThreadedHTTPServer(ThreadingMixIn, HTTPServer):
     """Handle requests in a separate thread."""
@@ -128,13 +156,15 @@ def realmain():
     ip = ''
     portshooter = 9090
     portgear = 9091
+
     try:
         cap = WebcamVideoStream(src=0).start()
         server = ThreadedHTTPServer((ip, portshooter), CamHandler)
         print("starting shooter server")
 
         capGear = WebcamVideoStream(src=1).start()
-        gearServer = ThreadedHTTPServer((ip, portgear), CamHandler)
+        gearServer = ThreadedHTTPServer((ip, portgear), CamHandlerGear)
+        print('starting gear server')
 
         target = Thread(target=server.serve_forever, args=())
         target1 = Thread(target=gearServer.serve_forever(), args=())
@@ -198,6 +228,7 @@ def realmain():
 
             frame = t
             frame1 = gearimg
+
             if (i == 0):
                 target.start()
                 target1.start()
