@@ -10,27 +10,31 @@ import time
 from operator import itemgetter
 import math
 
+
 # construct the argument parse and parse the arguments
 # v4l2-ctl --set-ctrl brightness=25
-#cmd commands:
-#source ~/.profile
-#workon cv
-#python '/home/pi/Documents/PythonProjects/pyImage.py' or wherever u have pyImage saved
+# cmd commands:
+# source ~/.profile
+# workon cv
+# python '/home/pi/Documents/PythonProjects/pyImage.py' or wherever u have pyImage saved
 
 def contourArea(contours):
     area = []
-    for i in range(0,len(contours)):
-       area.append([cv2.contourArea(contours[i]),i])
+    for i in range(0, len(contours)):
+        area.append([cv2.contourArea(contours[i]), i])
 
     area.sort(key=itemgetter(1))
 
     return area[len(area) - 1]
 
+
 def widthDistanceCalc(x):
     return -0.0003 * math.pow(x, 3) + 0.0881 * x * x - 10.336 * x + 553.9
 
+
 def tanDistance(x):
-    return ((0.333) * 480) / 2 * x * np.tan(14.86 * np.pi/180)
+    return ((0.333) * 480) / 2 * x * np.tan(14.86 * np.pi / 180)
+
 
 class CamHandler(BaseHTTPRequestHandler):
     def do_GET(self):
@@ -42,7 +46,7 @@ class CamHandler(BaseHTTPRequestHandler):
             while True:
                 try:
 
-                    if(frame != None):
+                    if (frame != None):
                         pass
                     r, buf = cv2.imencode(".jpg", frame)
                     self.wfile.write("--jpgboundary\r\n".encode())
@@ -60,6 +64,7 @@ class CamHandler(BaseHTTPRequestHandler):
             self.wfile.write('<img src="http://localhost:9090/stream.mjpg" height="480px" width="640px"/>')
             self.wfile.write('</body></html>')
             return
+
 
 class ThreadedHTTPServer(ThreadingMixIn, HTTPServer):
     """Handle requests in a separate thread."""
@@ -115,31 +120,39 @@ def realmain():
     BUFFER_SIZE = 1024
     MESSAGE1 = 'Y'
     MESSAGE2 = 'N'
-    #UDP_IP = '10.140.121.174'
+    # UDP_IP = '10.140.121.174'
     UDP_IP = '10.140.121.108'
     font = cv2.FONT_HERSHEY_SIMPLEX
     sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 
     ip = ''
-
+    portshooter = 9090
+    portgear = 9091
     try:
         cap = WebcamVideoStream(src=0).start()
-        server = ThreadedHTTPServer((ip, 9090), CamHandler)
-        print("starting server ")
-        target = Thread(target=server.serve_forever,args=())
+        server = ThreadedHTTPServer((ip, portshooter), CamHandler)
+        print("starting shooter server")
+
+        capGear = WebcamVideoStream(src=1).start()
+        gearServer = ThreadedHTTPServer((ip, portgear), CamHandler)
+
+        target = Thread(target=server.serve_forever, args=())
+        target1 = Thread(target=gearServer.serve_forever(), args=())
 
         i = 0
         while True:
 
             img = cap.read()
-            t = imutils.resize(img, width=640,height=480)
-            #frame1 = imutils.resize(img, width=600)
-            #img1 = cv2.GaussianBlur(t, (5, 5), 0)
+            gearimg = capGear.read()
 
-            #frame = imutils.resize(img, width=320,height=240)
+            t = imutils.resize(img, width=640, height=480)
+            # frame1 = imutils.resize(img, width=600)
+            # img1 = cv2.GaussianBlur(t, (5, 5), 0)
+
+            # frame = imutils.resize(img, width=320,height=240)
 
 
-            #frame1 = imutils.resize(img, width=600)
+            # frame1 = imutils.resize(img, width=600)
             img2 = cv2.GaussianBlur(t, (5, 5), 0)
             hsv = cv2.cvtColor(img2, cv2.COLOR_BGR2HSV)
             # construct a mask for the color "green", then perform
@@ -152,12 +165,11 @@ def realmain():
             # (x, y) center of the ball
             im2, cnts, hierarchy = cv2.findContours(edged.copy(), cv2.RETR_LIST, cv2.CHAIN_APPROX_NONE)
 
-            if(len(cnts) >=1):
+            if (len(cnts) >= 1):
                 area, place = contourArea(cnts)
 
-                if(area >= 100):
+                if (area >= 100):
                     maxc = cnts[place]
-
 
                     rect = cv2.minAreaRect(maxc)
                     box = cv2.boxPoints(rect)
@@ -171,27 +183,33 @@ def realmain():
                     height = rect[1][0]
                     width = rect[1][1]
 
-                    widthreal = max(width,height)
+                    widthreal = max(width, height)
                     heightreal = min(width, height)
                     distance = widthDistanceCalc(widthreal)
                     otherdistance = tanDistance(heightreal)
 
-                    cv2.putText(t, '%s , %s in.' % (round(distance,2), round(otherdistance,2)), (10, 400), font, 0.5, (0, 0, 255), 1)
+                    cv2.putText(t, '%s , %s in.' % (round(distance, 2), round(otherdistance, 2)), (10, 400), font, 0.5,
+                                (0, 0, 255), 1)
 
-                    sock.sendto(('Y ' + str(cx) + ' ' + str(cy) + ' ' + "{0:.2f}".format(heightreal) + ' ' + "{0:.2f}".format(widthreal)).encode(),(UDP_IP, UDP_PORT))
+                    sock.sendto(('Y ' + str(cx) + ' ' + str(cy) + ' ' + "{0:.2f}".format(
+                        heightreal) + ' ' + "{0:.2f}".format(widthreal)).encode(), (UDP_IP, UDP_PORT))
             else:
                 sock.sendto('N'.encode(), (UDP_IP, UDP_PORT))
 
             frame = t
-
+            frame1 = gearimg
             if (i == 0):
                 target.start()
+                target1.start()
             i += 1
 
     except KeyboardInterrupt:
         cap.stop()
+        capGear.stop()
         target.join()
+        target1.join()
         sys.exit()
+
 
 if __name__ == '__main__':
     realmain()
