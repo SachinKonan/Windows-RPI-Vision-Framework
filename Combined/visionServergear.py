@@ -174,6 +174,7 @@ def realmain():
 
             img = cap.read()
             gearimg = capGear.read()
+            gearimg = imutils.resize(gearimg, width=640, height=480)
 
             t = imutils.resize(img, width=640, height=480)
             # frame1 = imutils.resize(img, width=600)
@@ -232,6 +233,7 @@ def realmain():
             if (i == 0):
                 target.start()
                 target1.start()
+
             i += 1
 
     except KeyboardInterrupt:
