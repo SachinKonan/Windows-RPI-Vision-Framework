@@ -29,7 +29,7 @@ def contourArea(contours):
         if(area[i][0] < 100):
             index = i
             break
-
+    print(area)
     if(area[len(area)-1][0] >=100):
         return [area[x][1] for x in range(index, len(area))]
     else:
