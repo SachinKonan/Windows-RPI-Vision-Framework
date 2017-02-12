@@ -22,7 +22,7 @@ def contourArea(contours):
     for i in range(0,len(contours)):
        area.append([cv2.contourArea(contours[i]),i])
 
-    area.sort(itemgetter(1))
+    area.sort(key=itemgetter(1))
 
     return area[len(area) - 1]
 
