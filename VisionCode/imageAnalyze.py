@@ -13,7 +13,7 @@ def contourArea(contours):
     for i in range(0,len(contours)):
        area.append([cv2.contourArea(contours[i]),i])
 
-    area.sort(key=itemgetter(1))
+    area.sort(key=itemgetter(0))
     index = 0
     for i in range(len(area)-1,-1,-1):
         print(area[i][0])
@@ -32,7 +32,7 @@ def distance_to_cam(x):
 lower_green = (55, 150, 70)
 upper_green = (90, 256, 256)
 font = cv2.FONT_HERSHEY_COMPLEX_SMALL
-img = cv2.imread('Target1.png')
+img = cv2.imread('Target3.png')
 img = cv2.GaussianBlur(img, (5, 5), 0)
 hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
 mask = cv2.inRange(hsv, lower_green, upper_green)

@@ -3,6 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="95e0bc96-810b-42b8-b555-6d102ed52a63" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Combined/imageGrab.py" afterPath="$PROJECT_DIR$/Combined/imageGrab.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Combined/visionServerTwoRect.py" afterPath="$PROJECT_DIR$/Combined/visionServerTwoRect.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/VisionCode/imageAnalyze.py" afterPath="$PROJECT_DIR$/VisionCode/imageAnalyze.py" />
     </list>
     <ignored path="Windows-RPI-Vision-Framework.iws" />
@@ -24,34 +26,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="600">
-      <file leaf-file-name="httpserver.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/HttpServer/httpserver.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2475">
-              <caret line="77" column="0" selection-start-line="77" selection-start-column="0" selection-end-line="77" selection-end-column="0" />
-              <folding>
-                <element signature="e#0#10#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="pyImage.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Combined/pyImage.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="726">
-              <caret line="28" column="20" selection-start-line="28" selection-start-column="20" selection-end-line="28" selection-end-column="20" />
-              <folding>
-                <element signature="e#0#29#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="visionServer.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Combined/visionServer.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1012">
+            <state relative-caret-position="6501">
               <caret line="197" column="61" selection-start-line="193" selection-start-column="20" selection-end-line="197" selection-end-column="61" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
@@ -63,7 +41,7 @@
       <file leaf-file-name="testVisionServer.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Combined/testVisionServer.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="99">
+            <state relative-caret-position="-5918">
               <caret line="3" column="28" selection-start-line="3" selection-start-column="28" selection-end-line="3" selection-end-column="28" />
               <folding />
             </state>
@@ -73,8 +51,8 @@
       <file leaf-file-name="imageGrab.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Combined/imageGrab.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="924">
-              <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
+            <state relative-caret-position="418">
+              <caret line="31" column="42" selection-start-line="31" selection-start-column="39" selection-end-line="31" selection-end-column="42" />
               <folding>
                 <element signature="e#0#17#0" expanded="true" />
               </folding>
@@ -85,7 +63,7 @@
       <file leaf-file-name="imageGrabTkinter.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Combined/gui/imageGrabTkinter.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1914">
+            <state relative-caret-position="33">
               <caret line="67" column="46" selection-start-line="67" selection-start-column="46" selection-end-line="67" selection-end-column="46" />
               <folding>
                 <element signature="e#0#20#0" expanded="true" />
@@ -94,11 +72,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="imageAnalyze.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/VisionCode/imageAnalyze.py">
+      <file leaf-file-name="visionServerTwoRect.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Combined/visionServerTwoRect.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="682">
-              <caret line="96" column="50" selection-start-line="96" selection-start-column="50" selection-end-line="96" selection-end-column="50" />
+            <state relative-caret-position="990">
+              <caret line="160" column="32" selection-start-line="160" selection-start-column="32" selection-end-line="160" selection-end-column="32" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
               </folding>
@@ -106,11 +84,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="visionServerTwoRect.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Combined/visionServerTwoRect.py">
+      <file leaf-file-name="imageAnalyze.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/VisionCode/imageAnalyze.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="286">
-              <caret line="192" column="42" selection-start-line="192" selection-start-column="42" selection-end-line="192" selection-end-column="42" />
+            <state relative-caret-position="495">
+              <caret line="15" column="30" selection-start-line="15" selection-start-column="30" selection-end-line="15" selection-end-column="30" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
               </folding>
@@ -141,9 +119,9 @@
         <option value="$PROJECT_DIR$/Combined/gui/checker.py" />
         <option value="$PROJECT_DIR$/Combined/gui/imageGrabTkinter.py" />
         <option value="$PROJECT_DIR$/VisionCode/SerialTest.py" />
-        <option value="$PROJECT_DIR$/Combined/imageGrab.py" />
         <option value="$PROJECT_DIR$/Combined/testVisionServer.py" />
         <option value="$PROJECT_DIR$/Combined/visionServer.py" />
+        <option value="$PROJECT_DIR$/Combined/imageGrab.py" />
         <option value="$PROJECT_DIR$/VisionCode/imageAnalyze.py" />
         <option value="$PROJECT_DIR$/Combined/visionServerTwoRect.py" />
       </list>
@@ -225,24 +203,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="Combined" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Windows-RPI-Vision-Framework" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Windows-RPI-Vision-Framework" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Combined" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="gui" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -497,9 +457,9 @@
       <list size="5">
         <item index="0" class="java.lang.String" itemvalue="Python.imageAnalyze" />
         <item index="1" class="java.lang.String" itemvalue="Python.imageGrab" />
-        <item index="2" class="java.lang.String" itemvalue="Python.SerialTest" />
-        <item index="3" class="java.lang.String" itemvalue="Python.imageGrabTkinter (1)" />
-        <item index="4" class="java.lang.String" itemvalue="Python.testVisionServer" />
+        <item index="2" class="java.lang.String" itemvalue="Python.testVisionServer" />
+        <item index="3" class="java.lang.String" itemvalue="Python.SerialTest" />
+        <item index="4" class="java.lang.String" itemvalue="Python.imageGrabTkinter (1)" />
       </list>
     </recent_temporary>
   </component>
@@ -583,7 +543,7 @@
         <state relative-caret-position="2475">
           <caret line="77" column="0" selection-start-line="77" selection-start-column="0" selection-end-line="77" selection-end-column="0" />
           <folding>
-            <element signature="e#0#10#0" expanded="true" />
+            <element signature="e#0#10#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -593,7 +553,7 @@
         <state relative-caret-position="2079">
           <caret line="69" column="0" selection-start-line="69" selection-start-column="0" selection-end-line="73" selection-end-column="8" />
           <folding>
-            <element signature="e#0#29#0" expanded="true" />
+            <element signature="e#0#29#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -641,7 +601,7 @@
         <state relative-caret-position="2475">
           <caret line="77" column="0" selection-start-line="77" selection-start-column="0" selection-end-line="77" selection-end-column="0" />
           <folding>
-            <element signature="e#0#10#0" expanded="true" />
+            <element signature="e#0#10#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -651,7 +611,7 @@
         <state relative-caret-position="2079">
           <caret line="69" column="0" selection-start-line="69" selection-start-column="0" selection-end-line="73" selection-end-column="8" />
           <folding>
-            <element signature="e#0#29#0" expanded="true" />
+            <element signature="e#0#29#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -699,7 +659,7 @@
         <state relative-caret-position="2475">
           <caret line="77" column="0" selection-start-line="77" selection-start-column="0" selection-end-line="77" selection-end-column="0" />
           <folding>
-            <element signature="e#0#10#0" expanded="true" />
+            <element signature="e#0#10#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -709,7 +669,7 @@
         <state relative-caret-position="4191">
           <caret line="133" column="31" selection-start-line="133" selection-start-column="31" selection-end-line="133" selection-end-column="31" />
           <folding>
-            <element signature="e#0#29#0" expanded="true" />
+            <element signature="e#0#29#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -739,7 +699,7 @@
         <state relative-caret-position="1254">
           <caret line="40" column="0" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
           <folding>
-            <element signature="e#0#10#0" expanded="true" />
+            <element signature="e#0#10#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -749,7 +709,7 @@
         <state relative-caret-position="4191">
           <caret line="133" column="31" selection-start-line="133" selection-start-column="31" selection-end-line="133" selection-end-column="31" />
           <folding>
-            <element signature="e#0#29#0" expanded="true" />
+            <element signature="e#0#29#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -779,7 +739,7 @@
         <state relative-caret-position="1254">
           <caret line="40" column="0" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
           <folding>
-            <element signature="e#0#10#0" expanded="true" />
+            <element signature="e#0#10#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -789,7 +749,7 @@
         <state relative-caret-position="3795">
           <caret line="122" column="12" selection-start-line="122" selection-start-column="8" selection-end-line="122" selection-end-column="40" />
           <folding>
-            <element signature="e#0#29#0" expanded="true" />
+            <element signature="e#0#29#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -809,7 +769,7 @@
         <state relative-caret-position="1254">
           <caret line="40" column="0" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
           <folding>
-            <element signature="e#0#10#0" expanded="true" />
+            <element signature="e#0#10#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -819,7 +779,7 @@
         <state relative-caret-position="3795">
           <caret line="122" column="12" selection-start-line="122" selection-start-column="8" selection-end-line="122" selection-end-column="40" />
           <folding>
-            <element signature="e#0#29#0" expanded="true" />
+            <element signature="e#0#29#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -839,7 +799,7 @@
         <state relative-caret-position="1254">
           <caret line="40" column="0" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
           <folding>
-            <element signature="e#0#10#0" expanded="true" />
+            <element signature="e#0#10#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -849,7 +809,7 @@
         <state relative-caret-position="3795">
           <caret line="122" column="12" selection-start-line="122" selection-start-column="8" selection-end-line="122" selection-end-column="40" />
           <folding>
-            <element signature="e#0#29#0" expanded="true" />
+            <element signature="e#0#29#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -871,17 +831,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/VisionCode/Target.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/HttpServer/httpserver.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2475">
           <caret line="77" column="0" selection-start-line="77" selection-start-column="0" selection-end-line="77" selection-end-column="0" />
           <folding>
-            <element signature="e#0#10#0" expanded="true" />
+            <element signature="e#0#10#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -913,16 +868,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Combined/gui/imageGrabTkinter.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1914">
-          <caret line="67" column="46" selection-start-line="67" selection-start-column="46" selection-end-line="67" selection-end-column="46" />
-          <folding>
-            <element signature="e#0#20#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/VisionCode/serialtester1.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -949,22 +894,27 @@
         <state relative-caret-position="726">
           <caret line="28" column="20" selection-start-line="28" selection-start-column="20" selection-end-line="28" selection-end-column="20" />
           <folding>
-            <element signature="e#0#29#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Combined/imageGrab.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="924">
-          <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#17#0" expanded="true" />
+            <element signature="e#0#29#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/VisionCode/Target3.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Combined/visionServer.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6501">
+          <caret line="197" column="61" selection-start-line="193" selection-start-column="20" selection-end-line="197" selection-end-column="61" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/VisionCode/Target.png">
       <provider selected="true" editor-type-id="images">
         <state />
       </provider>
@@ -976,26 +926,36 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Combined/testVisionServer.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="99">
+        <state relative-caret-position="-5918">
           <caret line="3" column="28" selection-start-line="3" selection-start-column="28" selection-end-line="3" selection-end-column="28" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Combined/visionServer.py">
+    <entry file="file://$PROJECT_DIR$/Combined/imageGrab.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1012">
-          <caret line="197" column="61" selection-start-line="193" selection-start-column="20" selection-end-line="197" selection-end-column="61" />
+        <state relative-caret-position="418">
+          <caret line="31" column="42" selection-start-line="31" selection-start-column="39" selection-end-line="31" selection-end-column="42" />
           <folding>
-            <element signature="e#0#10#0" expanded="true" />
+            <element signature="e#0#17#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Combined/gui/imageGrabTkinter.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="33">
+          <caret line="67" column="46" selection-start-line="67" selection-start-column="46" selection-end-line="67" selection-end-column="46" />
+          <folding>
+            <element signature="e#0#20#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/VisionCode/imageAnalyze.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="682">
-          <caret line="96" column="50" selection-start-line="96" selection-start-column="50" selection-end-line="96" selection-end-column="50" />
+        <state relative-caret-position="495">
+          <caret line="15" column="30" selection-start-line="15" selection-start-column="30" selection-end-line="15" selection-end-column="30" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
           </folding>
@@ -1004,8 +964,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Combined/visionServerTwoRect.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
-          <caret line="192" column="42" selection-start-line="192" selection-start-column="42" selection-end-line="192" selection-end-column="42" />
+        <state relative-caret-position="990">
+          <caret line="160" column="32" selection-start-line="160" selection-start-column="32" selection-end-line="160" selection-end-column="32" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
           </folding>

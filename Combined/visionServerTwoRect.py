@@ -11,7 +11,7 @@ import time
 from operator import itemgetter
 
 # construct the argument parse and parse the arguments
-# v4l2-ctl --set-ctrl brightness=25
+# v4l2-ctl --set-ctrl brightness=130
 #cmd commands:
 #source ~/.profile
 #workon cv
@@ -22,10 +22,10 @@ def contourArea(contours):
     for i in range(0,len(contours)):
        area.append([cv2.contourArea(contours[i]),i])
 
-    area.sort(key=itemgetter(1))
+    area.sort(key=itemgetter(0))
     index = 0
     for i in range(len(area)-1,-1,-1):
-        print(area[i][0])
+        #print(area[i][0])
         if(area[i][0] < 100):
             index = i
             break
@@ -196,7 +196,7 @@ def realmain():
                     box = np.int0(box)
                     cv2.drawContours(t, [box], 0, (255, 0, 0), 2)
                     distance = distance_to_cam(height)
-                    cv2.putText(img, '%s in. / %s m.' % (round(distance, 2), round(distance * 0.0254, 2)), (10, 600),font, 0.75, (0, 0, 255), 1)
+                    cv2.putText(t, '%s in. / %s m.' % (round(distance, 2), round(distance * 0.0254, 2)), (10, 600),font, 0.75, (0, 0, 255), 1)
                     sock.sendto(('Y ' + str(centerx) + ' ' + str(centery) + ' ' + "{0:.2f}".format(height)).encode(),(UDP_IP, UDP_PORT))
                 else:
                     sock.sendto('N'.encode(), (UDP_IP, UDP_PORT))
