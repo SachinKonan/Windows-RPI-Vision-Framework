@@ -17,9 +17,9 @@ class CamHandler(BaseHTTPRequestHandler):
             while True:
                 try:
 
-                    if(frame != None):
+                    if(frame1 != None):
                         pass
-                    r, buf = cv2.imencode(".jpg", frame)
+                    r, buf = cv2.imencode(".jpg", frame1)
                     self.wfile.write("--jpgboundary\r\n".encode())
                     self.end_headers()
                     self.wfile.write(bytearray(buf))
@@ -79,7 +79,7 @@ class WebcamVideoStream:
         self.stopped = True
 
 def realmain():
-    global frame
+    global frame1
 
     ip = ''
     port = 9091
@@ -97,7 +97,7 @@ def realmain():
             if(i == 0):
                 target.start()
 
-            frame = t
+            frame1 = t
             i+=1
 
     except KeyboardInterrupt:
