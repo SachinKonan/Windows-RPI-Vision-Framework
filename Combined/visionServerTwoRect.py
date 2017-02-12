@@ -120,7 +120,7 @@ def realmain():
 
     UDP_PORT = 5465
     BUFFER_SIZE = 1024
-    UDP_IP = '10.140.121.174'
+    UDP_IP = '10.140.121.108'
     sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 
     font = cv2.FONT_HERSHEY_SIMPLEX
