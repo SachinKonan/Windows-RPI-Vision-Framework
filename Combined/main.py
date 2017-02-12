@@ -1,4 +1,4 @@
-from Combined import testGearVid, testVisionServer
+import testGearVid, testVisionServer
 import multiprocessing
 
 if __name__ == '__main__':
