@@ -4,11 +4,11 @@ from socketserver import ThreadingMixIn
 from threading import Thread
 import imutils
 import sys
-from collections import deque
 import socket
 import numpy as np
 import time
 from operator import itemgetter
+import math
 
 # construct the argument parse and parse the arguments
 # v4l2-ctl --set-ctrl brightness=25
@@ -27,8 +27,7 @@ def contourArea(contours):
     return area[len(area) - 1]
 
 def widthDistanceCalc(x):
-    return -0.0003 * (x**3) + 0.0881 * x * x - 10.336 * x + 553.9
-
+    return -0.0003 * math.pow(x, 3) + 0.0881 * x * x - 10.336 * x + 553.9
 
 class CamHandler(BaseHTTPRequestHandler):
     def do_GET(self):
@@ -167,8 +166,10 @@ def realmain():
                     height = rect[1][0]
                     width = rect[1][1]
 
+                    widthreal = max(width,height)
+                    heightreal = min(width, height)
                     #cv2.putText(t, '%s in.' % (round(distance,2)), (10, 400), font, 1.5, (0, 0, 255), 3)
-                    sock.sendto(('Y ' + str(cx) + ' ' + str(cy) + ' ' + "{0:.2f}".format(height) + ' ' + "{0:.2f}".format(width)).encode(),(UDP_IP, UDP_PORT))
+                    sock.sendto(('Y ' + str(cx) + ' ' + str(cy) + ' ' + "{0:.2f}".format(heightreal) + ' ' + "{0:.2f}".format(widthreal)).encode(),(UDP_IP, UDP_PORT))
             else:
                 sock.sendto('N'.encode(), (UDP_IP, UDP_PORT))
 
