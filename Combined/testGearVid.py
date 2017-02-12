@@ -4,11 +4,6 @@ from socketserver import ThreadingMixIn
 from threading import Thread
 import imutils
 import sys
-import socket
-import numpy as np
-import time
-from operator import itemgetter
-import math
 
 
 
@@ -87,7 +82,7 @@ def realmain():
     global frame
 
     ip = ''
-    port = 9090
+    port = 9091
     try:
         cap = WebcamVideoStream(src=1).start()
         server = ThreadedHTTPServer((ip, port), CamHandler)
