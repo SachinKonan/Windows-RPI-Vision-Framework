@@ -26,7 +26,6 @@ def contourArea(contours):
 
     return area[len(area) - 1]
 
-
 class CamHandler(BaseHTTPRequestHandler):
     def do_GET(self):
         print(self.path)
@@ -170,34 +169,6 @@ def realmain():
                 sock.sendto('N'.encode(), (UDP_IP, UDP_PORT))
 
             frame = t
-            """
-            if (len(cnts) > 1):
-                lister = contourArea(cnts)
-
-                area = lister[0]
-                place = lister[1]
-                if (area != 0):
-                    c = cnts[place]
-
-                    rect = cv2.minAreaRect(c)
-                    box = cv2.boxPoints(rect)
-                    box = np.int0(box)
-                    cv2.drawContours(t, [box], 0, (255, 0, 0), 2)
-                    frame = t
-
-                    # cv2.drawContours(frame, c, -1, (0, 0, 255), 3)
-                    M = cv2.moments(c)
-                    cx = int(M['m10'] / M['m00'])  # Center of MASS Coordinates
-                    cy = int(M['m01'] / M['m00'])
-                    rect = cv2.minAreaRect(c)
-                    length = rect[1][1]
-
-                    sock.sendto(('Y ' + str(cx) + ' ' + str(cy) + ' ' + "{0:.2f}".format(length)).encode(),
-                                (UDP_IP, UDP_PORT))
-                    # sock.sendto(('Y').encode(),(UDP_IP,UDP_PORT))
-            else:
-                sock.sendto('N'.encode(), (UDP_IP, UDP_PORT))
-            """
 
             if (i == 0):
                 target.start()
