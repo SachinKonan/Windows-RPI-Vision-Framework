@@ -8,6 +8,7 @@ from collections import deque
 import socket
 import numpy as np
 import time
+from operator import itemgetter
 
 # construct the argument parse and parse the arguments
 # v4l2-ctl --set-ctrl brightness=25
@@ -21,7 +22,7 @@ def contourArea(contours):
     for i in range(0,len(contours)):
        area.append([cv2.contourArea(contours[i]),i])
 
-    area.sort()
+    area.sort(itemgetter(1))
 
     return area[len(area) - 1]
 
