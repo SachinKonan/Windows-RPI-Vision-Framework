@@ -168,7 +168,7 @@ def realmain():
                     width = rect[1][1]
 
                     #print(length)
-                    cv2.putText(t, 'hello', (10, 600), font, 3, (0, 0, 255), 3)
+                    cv2.putText(t, 'Hello', (10, 600), font, 10, (0, 0, 255), 3)
                     sock.sendto(('Y ' + str(cx) + ' ' + str(cy) + ' ' + "{0:.2f}".format(length) + ' ' + "{0:.2f}".format(width)).encode(),(UDP_IP, UDP_PORT))
             else:
                 sock.sendto('N'.encode(), (UDP_IP, UDP_PORT))
