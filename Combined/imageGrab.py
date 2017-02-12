@@ -10,8 +10,8 @@ def onmouse(k, x, y, s, p):
         print(hsv[y, x])
 
 
-#url = 'http://10.140.86.216:9090/stream.mjpg'
-url = 'http://localhost:9090/stream.mjpg'
+url = 'http://10.140.86.216:9090/stream.mjpg'
+#url = 'http://localhost:9090/stream.mjpg'
 lower_green = (55, 140, 70)
 upper_green = (90, 256, 256)
 cap = cv2.VideoCapture(url)
@@ -29,7 +29,7 @@ while True:
 
         cv2.namedWindow("Image w Contours")
         cv2.setMouseCallback("Image w Contours", onmouse)
-        cv2.imshow('Image w Contours', img)
+        cv2.imshow('Image w Contours', mask)
 
         if cv2.waitKey(1) & 0xFF == ord('x'):
             break
