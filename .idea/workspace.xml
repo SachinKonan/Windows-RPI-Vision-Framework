@@ -26,8 +26,8 @@
       <file leaf-file-name="visionServer.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Combined/visionServer.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="693">
-              <caret line="171" column="57" selection-start-line="171" selection-start-column="57" selection-end-line="171" selection-end-column="57" />
+            <state relative-caret-position="528">
+              <caret line="176" column="116" selection-start-line="176" selection-start-column="116" selection-end-line="176" selection-end-column="116" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
               </folding>
@@ -982,8 +982,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Combined/visionServer.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="693">
-          <caret line="171" column="57" selection-start-line="171" selection-start-column="57" selection-end-line="171" selection-end-column="57" />
+        <state relative-caret-position="528">
+          <caret line="176" column="116" selection-start-line="176" selection-start-column="116" selection-end-line="176" selection-end-column="116" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
           </folding>

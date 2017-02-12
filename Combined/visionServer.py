@@ -29,6 +29,9 @@ def contourArea(contours):
 def widthDistanceCalc(x):
     return -0.0003 * math.pow(x, 3) + 0.0881 * x * x - 10.336 * x + 553.9
 
+def tanDistance(x):
+    return (1/3) * 480/ 2 * x * np.tan(14.86 * np.pi/180)
+
 class CamHandler(BaseHTTPRequestHandler):
     def do_GET(self):
         print(self.path)
@@ -169,7 +172,10 @@ def realmain():
                     widthreal = max(width,height)
                     heightreal = min(width, height)
                     distance = widthDistanceCalc(widthreal)
-                    cv2.putText(t, '%s in.' % (round(distance,2)), (10, 400), font, 1.5, (0, 0, 255), 3)
+                    otherdistance = tanDistance(widthreal)
+
+                    cv2.putText(t, '%s , %s in.' % (round(distance,2), round(otherdistance,2)), (10, 400), font, 0.5, (0, 0, 255), 3)
+
                     sock.sendto(('Y ' + str(cx) + ' ' + str(cy) + ' ' + "{0:.2f}".format(heightreal) + ' ' + "{0:.2f}".format(widthreal)).encode(),(UDP_IP, UDP_PORT))
             else:
                 sock.sendto('N'.encode(), (UDP_IP, UDP_PORT))
