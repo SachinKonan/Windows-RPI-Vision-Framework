@@ -27,11 +27,11 @@ while True:
         mask = cv2.inRange(hsv, lower_green, upper_green)
         edged = cv2.Canny(mask, 35, 125)
         im2, contours, hierarchy = cv2.findContours(edged.copy(), cv2.RETR_LIST, cv2.CHAIN_APPROX_NONE)
+        cv2.drawContours(img, contours, -1, (0, 255, 0), 3)
 
-        cv2.drawContours(t, [contours], 0, (255, 0, 0), 2)
         cv2.namedWindow("Image w Contours")
         cv2.setMouseCallback("Image w Contours", onmouse)
-        cv2.imshow('Image w Contours', mask)
+        cv2.imshow('Image w Contours', img)
 
         if cv2.waitKey(1) & 0xFF == ord('x'):
             break
