@@ -24,14 +24,17 @@ def contourArea(contours):
 
     area.sort(key=itemgetter(0))
     index = 0
-    for i in range(len(area)-1,-1,-1):
-        #print(area[i][0])
-        if(area[i][0] < 100):
-            index = i
-            break
-    print(area)
-    if(area[len(area)-1][0] >=100):
-        return [area[x][1] for x in range(index, len(area))]
+
+    if(len(area) != 0):
+        for i in range(len(area)-1,-1,-1):
+            #print(area[i][0])
+            if(area[i][0] < 100):
+                index = i
+                break
+        if(area[len(area)-1][0] >=100):
+            return [area[x][1] for x in range(index, len(area))]
+        else:
+            return [-1]
     else:
         return [-1]
 
