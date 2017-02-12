@@ -199,8 +199,8 @@ def realmain():
                     box = np.int0(box)
                     cv2.drawContours(t, [box], 0, (255, 0, 0), 2)
                     distance = distance_to_cam(height)
-                    cv2.putText(t,'hello')
-                    #cv2.putText(t, '%s in. / %s m.' % (round(distance, 2), round(distance * 0.0254, 2)), (10, 600),font, 0.75, (0, 0, 255), 1)
+                    #'%s in. / %s m.' % (round(distance, 2), round(distance * 0.0254, 2))
+                    cv2.putText(t,'hello' , (10, 600),font, 0.75, (0, 0, 255), 1)
                     sock.sendto(('Y ' + str(centerx) + ' ' + str(centery) + ' ' + "{0:.2f}".format(height)).encode(),(UDP_IP, UDP_PORT))
                 else:
                     sock.sendto('N'.encode(), (UDP_IP, UDP_PORT))
