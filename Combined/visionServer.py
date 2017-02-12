@@ -30,7 +30,7 @@ def widthDistanceCalc(x):
     return -0.0003 * math.pow(x, 3) + 0.0881 * x * x - 10.336 * x + 553.9
 
 def tanDistance(x):
-    return (1/3) * 480/ 2 * x * np.tan(14.86 * np.pi/180)
+    return ((1/3) * 480) / 2 * x * np.tan(14.86 * np.pi/180)
 
 class CamHandler(BaseHTTPRequestHandler):
     def do_GET(self):
@@ -172,7 +172,7 @@ def realmain():
                     widthreal = max(width,height)
                     heightreal = min(width, height)
                     distance = widthDistanceCalc(widthreal)
-                    otherdistance = tanDistance(widthreal)
+                    otherdistance = tanDistance(heightreal)
 
                     cv2.putText(t, '%s , %s in.' % (round(distance,2), round(otherdistance,2)), (10, 400), font, 0.5, (0, 0, 255), 1)
 
