@@ -26,6 +26,10 @@ def contourArea(contours):
 
     return area[len(area) - 1]
 
+def widthDistanceCalc(x):
+    return -0.0003 * (x**3) + 0.0881 * x * x - 10.336 * x + 553.9
+
+
 class CamHandler(BaseHTTPRequestHandler):
     def do_GET(self):
         print(self.path)
@@ -109,7 +113,7 @@ def realmain():
     MESSAGE2 = 'N'
     #UDP_IP = '10.140.121.174'
     UDP_IP = '10.140.121.108'
-
+    font = cv2.FONT_HERSHEY_SIMPLEX
     sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 
     ip = ''
@@ -164,6 +168,7 @@ def realmain():
                     width = rect[1][1]
 
                     #print(length)
+                    cv2.putText(t, 'hello', (10, 600), font, 3, (0, 0, 255), 3)
                     sock.sendto(('Y ' + str(cx) + ' ' + str(cy) + ' ' + "{0:.2f}".format(length) + ' ' + "{0:.2f}".format(width)).encode(),(UDP_IP, UDP_PORT))
             else:
                 sock.sendto('N'.encode(), (UDP_IP, UDP_PORT))
