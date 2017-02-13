@@ -176,7 +176,7 @@ def realmain():
                     distance = widthDistanceCalc(widthreal)
                     otherdistance = tanDistance(heightreal)
 
-                    cv2.putText(t, '%s , %s in.' % (round(distance,2), round(otherdistance,2)), (10, 400), font, 0.5, (0, 0, 255), 1)
+                    cv2.putText(t, '%s in. ' % (round(distance,2)), (10, 400), font, 0.5, (0, 0, 255), 1)
 
                     sock.sendto(('Y ' + str(cx) + ' ' + str(cy) + ' ' + "{0:.2f}".format(heightreal) + ' ' + "{0:.2f}".format(widthreal)).encode(),(UDP_IP, UDP_PORT))
             else:

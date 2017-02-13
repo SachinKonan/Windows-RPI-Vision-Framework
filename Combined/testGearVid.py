@@ -5,8 +5,6 @@ from threading import Thread
 import imutils
 import sys
 
-
-
 class CamHandler(BaseHTTPRequestHandler):
     def do_GET(self):
         print(self.path)
@@ -86,7 +84,7 @@ def realmain():
     try:
         cap = WebcamVideoStream(src=1).start()
         server = ThreadedHTTPServer((ip, port), CamHandler)
-        print("starting gear server ")
+        print("starting gear server bub")
         target = Thread(target=server.serve_forever, args=())
 
         i = 0
