@@ -1,4 +1,4 @@
-from Combined import testGearVid,testVisionServer
+import testGearVid,testVisionServer
 from multiprocessing import Barrier, Lock, Process
 import time
 
