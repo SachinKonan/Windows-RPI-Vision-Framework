@@ -13,8 +13,8 @@ from threading import Thread
 large_font = ("Verdana", 12)
 small_font = ("Verdana", 8)
 
-url1 = 'http://localhost:9090/stream.mjpg'
-url2 = 'http://localhost:9091/stream.mjpg'
+url1 = 'http://10.140.84.165:9090/stream.mjpg'
+url2 = 'http://10.140.84.165:9091/stream.mjpg'
 
 
 class MainGui(tk.Tk):
