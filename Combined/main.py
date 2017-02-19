@@ -1,4 +1,4 @@
-import testGearVid,testVisionServer
+import testGearVid,visionServer
 from threading import Thread
 import time
 
@@ -8,7 +8,7 @@ if __name__ == '__main__':
     p1.start()
     print('blah')
 
-    p2 = Thread(target= testVisionServer.realmain,args=())
+    p2 = Thread(target= visionServer.realmain,args=())
     p2.start()
     print('hello')
 
