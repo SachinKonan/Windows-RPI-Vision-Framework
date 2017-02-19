@@ -10,9 +10,9 @@ def onmouse(k, x, y, s, p):
         print(hsv[y, x])
 
 
-url = 'http://10.140.86.216:9090/stream.mjpg'
+url = 'http://10.140.84.165:9090/stream.mjpg'
 #url = 'http://localhost:9090/stream.mjpg'
-lower_green = (55, 140, 70)
+lower_green = (55, 140, 110)
 upper_green = (90, 256, 256)
 cap = cv2.VideoCapture(url)
 

@@ -108,7 +108,7 @@ def realmain():
     global frame
     global frame1
 
-    lower_green = (55, 140, 70)
+    lower_green = (55, 140, 110)
     upper_green = (90, 256, 256)
 
     UDP_PORT = 5465
@@ -116,7 +116,8 @@ def realmain():
     MESSAGE1 = 'Y'
     MESSAGE2 = 'N'
     #UDP_IP = '10.140.121.174'
-    UDP_IP = '10.140.121.108'
+    #UDP_IP = '10.140.121.108'
+    UDP_IP = '10.140.122.27'
     font = cv2.FONT_HERSHEY_SIMPLEX
     sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 
