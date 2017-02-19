@@ -96,19 +96,17 @@ class PageOne(tk.Frame):
     def startStream(self):
         self.statuslabel['text'] = 'STATUS: Starting Shooter Server'
         self.cap = cv2.VideoCapture(url1)
-
-        if (self.cap.isOpened()):
-            self.statuslabel['text'] = 'STATUS: Shooter MJPEG IS UP'
-        else:
-            self.statuslabel['text'] = 'STATUS: Shooter MJPEG IS DOWN'
-
         self.statuslabel['text'] = 'STATUS: Starting Gear Server'
         self.gearcap = cv2.VideoCapture(url2)
 
-        if (self.gearcap.isOpened()):
-            self.statuslabel['text'] = 'STATUS: Gear MJPEG IS UP'
-        else:
-            self.statuslabel['text'] = 'STATUS: Gear MJPEG IS DOWN'
+        if (self.cap.isOpened() and self.gearcap.isOpened()):
+            self.statuslabel['text'] = 'STATUS: Shooter and Gear MJPEG IS UP'
+        elif(self.cap.isOpened() and not self.gearcap.isOpened()):
+            self.statuslabel['text'] = 'STATUS: Shooter MJPEG IS UP and Gear MJPEG is DOWN'
+        elif(not self.cap.isOpened() and self.gearcap.isOpened()):
+            self.statuslabel['text'] = 'STATUS: Shooter MJPEG IS DOWN and Gear MJPEG is UP'
+        elif(not self.cap.isOpened() and not self.gearcap.isOpened()):
+            self.statuslabel['text'] = 'STATUS: Shooter MJPEG IS DOWN and Gear MJPEG is DOWN'
 
         if(self.gearcap.isOpened() or self.cap.isOpened()):
             self.repeatShow()
