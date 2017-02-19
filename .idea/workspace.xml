@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="95e0bc96-810b-42b8-b555-6d102ed52a63" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Combined/main.py" afterPath="$PROJECT_DIR$/Combined/main.py" />
-    </list>
+    <list default="true" id="95e0bc96-810b-42b8-b555-6d102ed52a63" name="Default" comment="" />
     <ignored path="Windows-RPI-Vision-Framework.iws" />
     <ignored path=".idea/workspace.xml" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -35,11 +33,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="main.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Combined/main.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="198">
-              <caret line="6" column="23" selection-start-line="6" selection-start-column="23" selection-end-line="6" selection-end-column="23" />
+              <caret line="6" column="53" selection-start-line="6" selection-start-column="53" selection-end-line="6" selection-end-column="53" />
               <folding>
                 <element signature="e#0#31#0" expanded="true" />
               </folding>
@@ -117,11 +115,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="imageGrabTkinter2.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="imageGrabTkinter2.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Combined/gui/imageGrabTkinter2.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3894">
-              <caret line="118" column="41" selection-start-line="118" selection-start-column="41" selection-end-line="118" selection-end-column="41" />
+            <state relative-caret-position="627">
+              <caret line="19" column="21" selection-start-line="19" selection-start-column="21" selection-end-line="19" selection-end-column="21" />
               <folding>
                 <element signature="e#0#20#0" expanded="true" />
               </folding>
@@ -283,7 +281,7 @@
       <recent name="C:\Users\Sachin Konan\Documents\FRC2017\Windows-RPI-Vision-Framework\Combined" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.imageGrab">
+  <component name="RunManager" selected="Python.imageGrabTkinter2">
     <configuration default="false" name="imageGrabTkinter" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -512,8 +510,8 @@
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.imageGrab" />
-        <item index="1" class="java.lang.String" itemvalue="Python.imageGrabTkinter2" />
+        <item index="0" class="java.lang.String" itemvalue="Python.imageGrabTkinter2" />
+        <item index="1" class="java.lang.String" itemvalue="Python.imageGrab" />
         <item index="2" class="java.lang.String" itemvalue="Python.imageGrabTkinter" />
         <item index="3" class="java.lang.String" itemvalue="Python.testVisionServer" />
         <item index="4" class="java.lang.String" itemvalue="Python.main" />
@@ -923,16 +921,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Combined/gui/imageGrabTkinter2.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3894">
-          <caret line="118" column="41" selection-start-line="118" selection-start-column="41" selection-end-line="118" selection-end-column="41" />
-          <folding>
-            <element signature="e#0#20#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Combined/imageGrab.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="66">
@@ -964,9 +952,19 @@
     <entry file="file://$PROJECT_DIR$/Combined/main.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="198">
-          <caret line="6" column="23" selection-start-line="6" selection-start-column="23" selection-end-line="6" selection-end-column="23" />
+          <caret line="6" column="53" selection-start-line="6" selection-start-column="53" selection-end-line="6" selection-end-column="53" />
           <folding>
             <element signature="e#0#31#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Combined/gui/imageGrabTkinter2.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="627">
+          <caret line="19" column="21" selection-start-line="19" selection-start-column="21" selection-end-line="19" selection-end-column="21" />
+          <folding>
+            <element signature="e#0#20#0" expanded="true" />
           </folding>
         </state>
       </provider>
