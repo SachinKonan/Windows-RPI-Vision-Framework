@@ -14,7 +14,9 @@ large_font = ("Verdana", 12)
 small_font = ("Verdana", 8)
 
 url1 = 'http://localhost:9090/stream.mjpg'
-url2 = ''
+url2 = 'http://localhost:9091/stream.mjpg'
+
+
 class MainGui(tk.Tk):
     def __init__(self, *args, **kwargs):
         tk.Tk.__init__(self, *args, **kwargs)
@@ -74,51 +76,83 @@ class PageOne(tk.Frame):
         frame = tk.Frame(self)
         frame.pack(side=tk.BOTTOM, fill=tk.BOTH)
 
-        chan1 = ttk.Button(frame, text="Start Stream ", command= self.startStream)
+        chan1 = ttk.Button(frame, text="Start Stream ", command=self.startStream)
         chan1.pack(side= tk.LEFT,pady=20, padx=20)
 
-        chan3 = ttk.Button(frame, text="Switch to Gear Stream ", command=self.changeStream)
+        chan3 = ttk.Button(frame, text="Switch to Gear Stream ",command=self.changeStream)
         chan3.pack(side=tk.LEFT, pady=20, padx=145)
 
         chan2 = ttk.Button(frame, text="Stop Stream", command= self.stopStream)
         chan2.pack(side= tk.RIGHT,pady=20, padx=20)
-        self.url = url1
+
         self.cap = None
+        self.gearcap = None
+
+        self.gear = False
 
     def changeStream(self):
-        pass
-    def startStream(self):
+        self.gear = not self.gear
 
-        self.statuslabel['text'] = 'STATUS: Starting Server'
-        self.cap = cv2.VideoCapture(self.url)
+    def startStream(self):
+        self.statuslabel['text'] = 'STATUS: Starting Shooter Server'
+        self.cap = cv2.VideoCapture(url1)
 
         if (self.cap.isOpened()):
-            self.statuslabel['text'] = 'STATUS: MJPEG IS UP'
+            self.statuslabel['text'] = 'STATUS: Shooter MJPEG IS UP'
+        else:
+            self.statuslabel['text'] = 'STATUS: Shooter MJPEG IS DOWN'
+
+        self.statuslabel['text'] = 'STATUS: Starting Gear Server'
+        self.gearcap = cv2.VideoCapture(url2)
+
+        if (self.gearcap.isOpened()):
+            self.statuslabel['text'] = 'STATUS: Gear MJPEG IS UP'
+        else:
+            self.statuslabel['text'] = 'STATUS: Gear MJPEG IS DOWN'
+
+        if(self.gearcap.isOpened() or self.cap.isOpened()):
             self.repeatShow()
         else:
-            self.statuslabel['text'] = 'STATUS: MJPEG IS DOWN'
+            self.stopStream()
 
     def repeatShow(self):
-        if(self.cap.isOpened()):
-            ret,img = self.cap.read()
+        if(not self.gear):
+            if(self.cap.isOpened()):
+                ret,img = self.cap.read()
 
-            image = Image.fromarray(img)
-            image1 = ImageTk.PhotoImage(image)
-            self.labelImage['image']=image1
-            self.labelImage.image = image1
-        else:
-            im = Image.open("aesthetic.png")
-            photo = ImageTk.PhotoImage(im)
+                image = Image.fromarray(img)
+                image1 = ImageTk.PhotoImage(image)
+                self.labelImage['image']=image1
+                self.labelImage.image = image1
+            else:
+                im = Image.open("aesthetic.png")
+                photo = ImageTk.PhotoImage(im)
 
-            self.labelImage['image'] = photo
-            self.labelImage.image = photo
-            return
+                self.labelImage['image'] = photo
+                self.labelImage.image = photo
+                return
+        elif(self.gear):
+            if (self.gearcap.isOpened()):
+                ret, img = self.gearcap.read()
+
+                image = Image.fromarray(img)
+                image1 = ImageTk.PhotoImage(image)
+                self.labelImage['image'] = image1
+                self.labelImage.image = image1
+            else:
+                im = Image.open("aesthetic.png")
+                photo = ImageTk.PhotoImage(im)
+
+                self.labelImage['image'] = photo
+                self.labelImage.image = photo
+                return
 
         self.after(ms=1, func=lambda: self.repeatShow())
 
     def stopStream(self):
         self.statuslabel['text'] = 'STATUS: LEFT Ongoing STREAM'
         self.cap.release()
+        self.gearcap.release()
 
 
 app = MainGui()
