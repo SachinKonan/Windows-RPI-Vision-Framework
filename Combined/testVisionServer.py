@@ -8,6 +8,7 @@ from collections import deque
 import socket
 import numpy as np
 import time
+import socket
 
 # construct the argument parse and parse the arguments
 # v4l2-ctl --set-ctrl brightness=25
@@ -25,7 +26,37 @@ def contourArea(contours):
 
     return area[len(area) - 1]
 
+class ReceiveThread:
+    def __init__(self, url = '', port = 8080):
+        UDP_IP = url
+        PORT = port
+        self.BUFF_SIZE = 1024
+        self.sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+        self.sock.bind((UDP_IP, PORT))
+        self.message = ''
+        self.stopped = False
 
+    def start(self):
+        # start the thread to read frames from the video stream
+        Thread(target=self.update, args=()).start()
+
+    def update(self):
+        while True:
+            if self.stopped:
+                return
+
+            data, addr = self.sock.recvfrom(self.BUFF_SIZE)
+            if(data.decode() != ''):
+                self.message = data.decode()
+            else:
+                self.message = ''
+
+
+    def getMessage(self):
+        return self.message
+    def stop(self):
+        # indicate that the thread should be stopped
+        self.stopped = True
 class CamHandler(BaseHTTPRequestHandler):
     def do_GET(self):
         print(self.path)
@@ -105,6 +136,16 @@ def realmain():
 
     ip = ''
 
+    UDP_PORT = 8080
+    UDP_RECEIVE_PORT = 8081
+
+    UDP_COMP_IP = 'localhost'
+
+    sendsock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+
+    receive = ReceiveThread(UDP_COMP_IP, UDP_RECEIVE_PORT)
+    receive.start()
+
     try:
         cap = WebcamVideoStream(src=0).start()
         server = ThreadedHTTPServer((ip, 9090), CamHandler)
@@ -133,64 +174,9 @@ def realmain():
 
             frame = t
 
-            """
-            # find contours in the mask and initialize the current
-            # (x, y) center of the ball
-            im2, cnts, hierarchy = cv2.findContours(edged.copy(), cv2.RETR_LIST, cv2.CHAIN_APPROX_NONE)
-
-            if(len(cnts) >=1):
-                area, place = contourArea(cnts)
-
-                if(area >= 100):
-                    maxc = cnts[place]
-
-
-                    rect = cv2.minAreaRect(maxc)
-                    box = cv2.boxPoints(rect)
-                    box = np.int0(box)
-                    cv2.drawContours(t, [box], 0, (0, 0, 255), 2)
-
-                    M = cv2.moments(maxc)
-                    cx = int(M['m10'] / M['m00'])  # Center of MASS Coordinates
-                    cy = int(M['m01'] / M['m00'])
-                    rect = cv2.minAreaRect(maxc)
-                    length = rect[1][0]
-                    width = rect[1][1]
-
-                    #print(length)
-                    sock.sendto(('Y ' + str(cx) + ' ' + str(cy) + ' ' + "{0:.2f}".format(length) + ' ' + "{0:.2f}".format(width)).encode(),(UDP_IP, UDP_PORT))
-            else:
-                sock.sendto('N'.encode(), (UDP_IP, UDP_PORT))
-
-            frame = t
-
-            if (len(cnts) > 1):
-                lister = contourArea(cnts)
-
-                area = lister[0]
-                place = lister[1]
-                if (area != 0):
-                    c = cnts[place]
-
-                    rect = cv2.minAreaRect(c)
-                    box = cv2.boxPoints(rect)
-                    box = np.int0(box)
-                    cv2.drawContours(t, [box], 0, (255, 0, 0), 2)
-                    frame = t
-
-                    # cv2.drawContours(frame, c, -1, (0, 0, 255), 3)
-                    M = cv2.moments(c)
-                    cx = int(M['m10'] / M['m00'])  # Center of MASS Coordinates
-                    cy = int(M['m01'] / M['m00'])
-                    rect = cv2.minAreaRect(c)
-                    length = rect[1][1]
-
-                    sock.sendto(('Y ' + str(cx) + ' ' + str(cy) + ' ' + "{0:.2f}".format(length)).encode(),
-                                (UDP_IP, UDP_PORT))
-                    # sock.sendto(('Y').encode(),(UDP_IP,UDP_PORT))
-            else:
-                sock.sendto('N'.encode(), (UDP_IP, UDP_PORT))
-            """
+            string = receive.getMessage()
+            if(string != ''):
+                print(string)
 
             if (i == 0):
                 target.start()

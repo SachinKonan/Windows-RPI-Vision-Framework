@@ -57,7 +57,7 @@ class CamHandler(BaseHTTPRequestHandler):
             self.send_header('Content-type', 'text/html')
             self.end_headers()
             self.wfile.write('<html><head></head><body>')
-            self.wfile.write('<img src="http://localhost:80/stream.mjpg" height="480px" width="640px"/>')
+            self.wfile.write('<img src="http://localhost:5810/stream.mjpg" height="480px" width="640px"/>')
             self.wfile.write('</body></html>')
             return
 
@@ -67,40 +67,31 @@ class ThreadedHTTPServer(ThreadingMixIn, HTTPServer):
 
 class WebcamVideoStream:
     def __init__(self, src=0):
-        # initialize the video camera stream and read the first frame
-        # from the stream
+
         self.stream = cv2.VideoCapture(src)
-        # self.stream.set(3, 1920)
-        # self.stream.set(4, 1080)
-        # self.stream.set(15,-100)
+
         (self.grabbed, self.frame) = self.stream.read()
 
-        # initialize the variable used to indicate if the thread should
-        # be stopped
         self.stopped = False
 
     def start(self):
-        # start the thread to read frames from the video stream
+
         Thread(target=self.update, args=()).start()
         return self
 
     def update(self):
-        # keep looping infinitely until the thread is stopped
         while True:
-            # if the thread indicator variable is set, stop the thread
+
             if self.stopped:
                 self.stream.release()
                 return
 
-            # otherwise, read the next frame from the stream
             (self.grabbed, self.frame) = self.stream.read()
 
     def read(self):
-        # return the frame most recently read
         return self.frame
 
     def stop(self):
-        # indicate that the thread should be stopped
         self.stopped = True
 
 

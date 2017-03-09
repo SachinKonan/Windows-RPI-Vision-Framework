@@ -8,7 +8,7 @@ import socket
 large_font = ("Verdana", 12)
 small_font = ("Verdana", 8)
 
-url1 = 'http://localhost:80/stream.mjpg'
+url1 = 'http://localhost:9090/stream.mjpg'
 
 class MainGui(tk.Tk):
     def __init__(self, *args, **kwargs):
@@ -80,7 +80,7 @@ class PageOne(tk.Frame):
         chan2.pack(side=tk.RIGHT, pady=20, padx=20)
 
         self.UDP_SEND_PORT = 5801
-        self.UDP_IP = '10.54.65.58'
+        self.UDP_IP = 'localhost'
         self.sendsock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         self.url = url1
         self.cap = None

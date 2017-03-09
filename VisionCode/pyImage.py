@@ -106,7 +106,7 @@ if __name__ == "__main__":
     #connection = ServerConnection()
     #connection.start()
     time.sleep(1)
-    camera = WebcamVideoStream(src=0).start()
+    camera = WebcamVideoStream(src=1).start()
     start_time = time.time()
 
     while True:
@@ -145,7 +145,7 @@ if __name__ == "__main__":
         else:
              sock.sendto('N'.encode(),(UDP_IP,UDP_PORT))
         
-        """
+
         cv2.namedWindow("Image w Contours")
         cv2.setMouseCallback("Image w Contours", onmouse)
         cv2.imshow('Image w Contours', frame)
@@ -157,11 +157,11 @@ if __name__ == "__main__":
         if key == ord("q"):
             break
         #if(numframes == 0): print(frame.shape)
-        """
+
         numframes+=1
         
-        if numframes >= 200:
-            break
+        #if numframes >= 200:
+            #break
             
     
     camera.stop()

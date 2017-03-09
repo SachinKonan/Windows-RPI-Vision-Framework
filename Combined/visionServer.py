@@ -29,8 +29,36 @@ def contourArea(contours):
 def widthDistanceCalc(x):
     return -0.0003 * math.pow(x, 3) + 0.0881 * x * x - 10.336 * x + 553.9
 
-def tanDistance(x):
-    return ((0.333) * 480) / 2 * x * np.tan(14.86 * np.pi/180)
+
+class ReceiveThread:
+    def __init__(self, url = '', port = 8080):
+        UDP_IP = url
+        PORT = port
+        self.BUFF_SIZE = 1024
+        self.sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+        self.sock.bind((UDP_IP, PORT))
+        self.message = ''
+        self.stopped = False
+
+    def start(self):
+        # start the thread to read frames from the video stream
+        Thread(target=self.update, args=()).start()
+
+    def update(self):
+        while True:
+            if self.stopped:
+                return
+
+            data, addr = self.sock.recvfrom(self.BUFF_SIZE)
+            if(data.decode() != ''):
+                self.message = data.decode()
+
+
+    def getMessage(self):
+        return self.message
+    def stop(self):
+        # indicate that the thread should be stopped
+        self.stopped = True
 
 class CamHandler(BaseHTTPRequestHandler):
     def do_GET(self):
@@ -111,20 +139,24 @@ def realmain():
     lower_green = (55, 140, 110)
     upper_green = (90, 256, 256)
 
-    UDP_PORT = 5465
-    BUFFER_SIZE = 1024
-    MESSAGE1 = 'Y'
-    MESSAGE2 = 'N'
+    UDP_PORT = 5800
+    UDP_COMP_PORT = 5801
     #UDP_IP = '10.140.121.174'
     #UDP_IP = '10.140.121.108'
-    UDP_IP = '10.140.122.27'
+    UDP_IP = 'localhost'
+
     font = cv2.FONT_HERSHEY_SIMPLEX
     sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+
+    receive = ReceiveThread(url='', port=UDP_COMP_PORT)
+    receive.start()
 
     ip = ''
 
     try:
         cap = WebcamVideoStream(src=0).start()
+        secondcap = WebcamVideoStream(src=1).start()
+
         server = ThreadedHTTPServer((ip, 9090), CamHandler)
         print("starting server ")
         target = Thread(target=server.serve_forever,args=())
@@ -134,13 +166,7 @@ def realmain():
 
             img = cap.read()
             t = imutils.resize(img, width=640,height=480)
-            #frame1 = imutils.resize(img, width=600)
-            #img1 = cv2.GaussianBlur(t, (5, 5), 0)
 
-            #frame = imutils.resize(img, width=320,height=240)
-
-
-            #frame1 = imutils.resize(img, width=600)
             img2 = cv2.GaussianBlur(t, (5, 5), 0)
             hsv = cv2.cvtColor(img2, cv2.COLOR_BGR2HSV)
             # construct a mask for the color "green", then perform
@@ -175,7 +201,6 @@ def realmain():
                     widthreal = max(width,height)
                     heightreal = min(width, height)
                     distance = widthDistanceCalc(widthreal)
-                    otherdistance = tanDistance(heightreal)
 
                     cv2.putText(t, '%s in. ' % (round(distance,2)), (10, 400), font, 0.5, (0, 0, 255), 1)
 
@@ -183,7 +208,16 @@ def realmain():
             else:
                 sock.sendto('N'.encode(), (UDP_IP, UDP_PORT))
 
-            frame = t
+            message = receive.getMessage()
+
+            if(message != ''):
+                print(message)
+            if(message =='2'):
+                frame = imutils.resize(secondcap.read(), width=640,height=480)
+            elif(message == '1'):
+                frame = t
+            elif(message == ''):
+                frame = imutils.resize(secondcap.read(), width=640,height=480)
 
             if (i == 0):
                 target.start()
