@@ -8,7 +8,9 @@ import socket
 large_font = ("Verdana", 12)
 small_font = ("Verdana", 8)
 
-url1 = 'http://localhost:9090/stream.mjpg'
+#ip = '192.168.43.115'
+ip = '10.54.65.88'
+url1 = 'http://' + ip + ':5810/stream.mjpg'
 
 class MainGui(tk.Tk):
     def __init__(self, *args, **kwargs):
@@ -80,7 +82,7 @@ class PageOne(tk.Frame):
         chan2.pack(side=tk.RIGHT, pady=20, padx=20)
 
         self.UDP_SEND_PORT = 5801
-        self.UDP_IP = 'localhost'
+        self.UDP_IP = ip
         self.sendsock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         self.url = url1
         self.cap = None
@@ -127,6 +129,7 @@ class PageOne(tk.Frame):
             self.sendsock.sendto('1'.encode(), (self.UDP_IP, self.UDP_SEND_PORT))
     def stopStream(self):
         self.statuslabel['text'] = 'STATUS: LEFT Ongoing STREAM'
+        self.sendsock.sendto(''.encode(), (self.UDP_IP, self.UDP_SEND_PORT))
         self.cap.release()
 
 app = MainGui()
