@@ -29,21 +29,7 @@ def contourArea(contours):
 def widthDistanceCalc(x):
 	return -0.0003 * math.pow(x, 3) + 0.0881 * x * x - 10.336 * x + 553.9
 
-class SendThread(self, url = '', port = 8080):
-	self.UDP_IP = url
-	self.PORT = port
-	self.sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-	self.wifiTuple = (self.UDP_IP, self.PORT)
-	self.message = ''
-	
-	def start(self):
-		Thread(target = self.update, args = ()).start()
-	
-	def update:
-		while True:
-			if self.stopped:
-				return 
-			
+
 class ReceiveThread:
 	def __init__(self, url = '', port = 8080):
 		UDP_IP = url
@@ -154,12 +140,11 @@ def realmain():
 	lower_green = (55, 140, 110)
 	upper_green = (90, 256, 256)
 
-	UDP_SEND_PORT = 5800
+	UDP_PORT = 5800
 	UDP_COMP_PORT = 5801
  
 	UDP_IP = ''
-	UDP_RIO = '10.54.65.79'
-
+	UDP_COMP = '10.54.65.58'
 	#UDP_COMP = '192.168.1.111'
 	
 	font = cv2.FONT_HERSHEY_SIMPLEX
@@ -170,7 +155,8 @@ def realmain():
 
 	ip = ''
 	cap = WebcamVideoStream(src=0).start()
-	os.system('v4l2-ctl --set-ctrl brightness=80')
+	os.system('v4l2-ctl --set-ctrl brightness=9
+0')
 	
 	secondcap = WebcamVideoStream(src=1).start()
 	
@@ -240,9 +226,9 @@ def realmain():
 
 					cv2.putText(t, '%s in. ' % (round(distance,2)), (10, 400), font, 0.5, (0, 0, 255), 1)
 
-					sock.sendto(('Y ' + str(cx) + ' ' + str(cy) + ' ' + "{0:.2f}".format(heightreal) + ' ' + "{0:.2f}".format(widthreal)).encode(),(UDP_RIO, UDP_SEND_PORT))
+					sock.sendto(('Y ' + str(cx) + ' ' + str(cy) + ' ' + "{0:.2f}".format(heightreal) + ' ' + "{0:.2f}".format(widthreal)).encode(),(UDP_COMP, UDP_PORT))
 			else:
-				sock.sendto('N'.encode(), (UDP_RIO, UDP_SEND_PORT))
+				sock.sendto('N'.encode(), (UDP_COMP, UDP_PORT))
 
 			message = receive.getMessage()
 			
