@@ -67,8 +67,21 @@ class PageOne(tk.Frame):
 
         self.labelImage = tk.Label(self, image=photo)
         self.labelImage.image = photo  # keep a reference!
-        self.labelImage.pack()
+        self.labelImage.pack(side= tk.LEFT)
 
+        frame = tk.Frame(self)
+        frame.pack(side=tk.RIGHT)
+
+        chan1 = ttk.Button(frame, text="Start Stream ", command=self.startStream)
+        chan1.pack(pady=20, padx = 5)
+
+        chan3 = ttk.Button(frame, text="Switch to Gear Stream ", command=self.changeStream)
+        chan3.pack(pady=20, padx = 5)
+
+        chan2 = ttk.Button(frame, text="Stop Stream", command=self.stopStream)
+        chan2.pack(pady=20, padx = 5)
+
+        """
         frame = tk.Frame(self)
         frame.pack(side=tk.BOTTOM, fill=tk.BOTH)
 
@@ -80,6 +93,7 @@ class PageOne(tk.Frame):
 
         chan2 = ttk.Button(frame, text="Stop Stream", command=self.stopStream)
         chan2.pack(side=tk.RIGHT, pady=20, padx=20)
+        """
 
         self.UDP_SEND_PORT = 5801
         self.UDP_IP = ip
@@ -133,4 +147,5 @@ class PageOne(tk.Frame):
         self.cap.release()
 
 app = MainGui()
+
 app.mainloop()
