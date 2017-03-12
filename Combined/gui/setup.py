@@ -12,7 +12,7 @@ executables = [cx_Freeze.Executable("imageGrabTkinterUDP.py", base=base )]
 
 cx_Freeze.setup(
     name = "ImageGrabberUDP",
-    options = {"build_exe": {"packages":["tkinter","matplotlib", "PIL", "time", "cv2" , "socket"], "include_files":["aesthetic.png"]}},
+    options = {"build_exe": {"packages":["numpy","tkinter","matplotlib", "PIL", "time", "cv2" , "socket"], "include_files":["aesthetic.png", "robot.jpg"]}},
     version = "0.01",
     description = "MJPEG Grabber for Python 3.5",
     executables = executables

@@ -4,6 +4,7 @@ from PIL import Image, ImageTk
 import time
 import cv2 as cv2
 import socket
+import numpy as np
 
 large_font = ("Verdana", 12)
 small_font = ("Verdana", 8)
