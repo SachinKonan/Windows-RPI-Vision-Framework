@@ -9,7 +9,7 @@ import numpy as np
 large_font = ("Verdana", 12)
 small_font = ("Verdana", 8)
 
-#ip = '192.168.1.34'
+#ip = '192.168.43.115'
 ip = '10.54.65.58'
 url1 = 'http://' + ip + ':5810/stream.mjpg'
 
