@@ -175,9 +175,9 @@ def realmain():
 
     UDP_IP = ''
     UDP_RIO = '10.54.65.79'
-
-    # UDP_COMP = '192.168.1.111'
-
+    
+    #UDP_RIO = '192.168.43.157'
+    
     font = cv2.FONT_HERSHEY_SIMPLEX
 
     send = SendThread(url=UDP_RIO, port= UDP_SEND_PORT)
@@ -259,7 +259,7 @@ def realmain():
                     send.changeMessage('Y ' + str(cx) + ' ' + str(cy) + ' ' + "{0:.2f}".format(
                         heightreal) + ' ' + "{0:.2f}".format(widthreal))
             else:
-                sock.changeMessage('N')
+                send.changeMessage('N')
 
             message = receive.getMessage()
 
@@ -278,6 +278,9 @@ def realmain():
         cap.stop()
         secondcap.stop()
         target.join()
+        
+        send.stop()
+        receive.stop()
         sys.exit()
 
 
