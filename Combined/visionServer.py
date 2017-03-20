@@ -11,12 +11,37 @@ from operator import itemgetter
 import math
 import os
 
-
 # construct the argument parse and parse the arguments
 # v4l2-ctl --set-ctrl brightness=25
 # cmd commands:
 # source ~/.profile
 # workon cv
+
+import socket
+import selectors
+import os
+try:
+    import threading
+except ImportError:
+    import dummy_threading as threading
+
+__all__ = ["BaseServer", "TCPServer", "UDPServer", "ForkingUDPServer",
+           "ForkingTCPServer", "ThreadingUDPServer", "ThreadingTCPServer",
+           "BaseRequestHandler", "StreamRequestHandler",
+           "DatagramRequestHandler", "ThreadingMixIn", "ForkingMixIn"]
+if hasattr(socket, "AF_UNIX"):
+    __all__.extend(["UnixStreamServer","UnixDatagramServer",
+                    "ThreadingUnixStreamServer",
+                    "ThreadingUnixDatagramServer"])
+
+# poll/select have the advantage of not requiring any extra file descriptor,
+# contrarily to epoll/kqueue (also, they require a single syscall).
+if hasattr(selectors, 'PollSelector'):
+    _ServerSelector = selectors.PollSelector
+else:
+    _ServerSelector = selectors.SelectSelector
+
+
 
 def contourArea(contours):
     area = []
@@ -123,6 +148,26 @@ class CamHandler(BaseHTTPRequestHandler):
 class ThreadedHTTPServer(ThreadingMixIn, HTTPServer):
     """Handle requests in a separate thread."""
 
+    def serve_forever(self, poll_interval=0.5):
+        try:
+            # XXX: Consider using another file descriptor or connecting to the
+            # socket to wake this up instead of polling. Polling reduces our
+            # responsiveness to a shutdown request and wastes cpu at all other
+            # times.
+            with _ServerSelector() as selector:
+                selector.register(self, selectors.EVENT_READ)
+
+                while True:
+                    if inet:
+                        ready = selector.select(poll_interval)
+                        if ready:
+                            self._handle_request_noblock()
+
+                        self.service_actions()
+                    else: pass
+        finally:
+            pass
+
 
 class WebcamVideoStream:
     def __init__(self, src=0):
@@ -165,7 +210,7 @@ class WebcamVideoStream:
 
 def realmain():
     global frame
-    global frame1
+    global inet
 
     lower_green = (55, 140, 110)
     upper_green = (90, 256, 256)
@@ -193,86 +238,93 @@ def realmain():
     secondcap = WebcamVideoStream(src=1).start()
 
     server = ThreadedHTTPServer((ip, 5810), CamHandler)
-    print("starting server ")
 
+    inet = False
     target = Thread(target=server.serve_forever, args=())
+    print("starting server ")
 
     try:
         i = 0
         while True:
 
-            img = cap.read()
-            img1 = secondcap.read()
+            if inet:
+                img = cap.read()
+                img1 = secondcap.read()
 
-            if (img == None):
-                raise Exception('Cam 1 isn not Connected')
-                cap.stop()
-                secondcap.stop()
-                target.join()
-                sys.exit()
-            if (img1 == None):
-                raise Exception('Cam2 isn not Connected')
-                sys.exit()
-                cap.stop()
-                secondcap.stop()
-                target.join()
+                if (img.shape == None):
+                    raise Exception('Cam 1 isn not Connected')
+                    cap.stop()
+                    secondcap.stop()
+                    target.join()
+                    sys.exit()
+                if (img1.shape == None):
+                    raise Exception('Cam2 isn not Connected')
+                    sys.exit()
+                    cap.stop()
+                    secondcap.stop()
+                    target.join()
 
-            t = imutils.resize(img, width=640, height=480)
-            tcam2 = imutils.resize(img1, width=640, height=480)
+                t = imutils.resize(img, width=640, height=480)
+                tcam2 = imutils.resize(img1, width=640, height=480)
 
-            img2 = cv2.GaussianBlur(t, (5, 5), 0)
-            hsv = cv2.cvtColor(img2, cv2.COLOR_BGR2HSV)
-            # construct a mask for the color "green", then perform
-            # a series of dilations and erosions to remove any small
-            # blobs left in the mask
-            mask = cv2.inRange(hsv, lower_green, upper_green)
-            edged = cv2.Canny(mask, 35, 125)
+                img2 = cv2.GaussianBlur(t, (5, 5), 0)
+                hsv = cv2.cvtColor(img2, cv2.COLOR_BGR2HSV)
+                # construct a mask for the color "green", then perform
+                # a series of dilations and erosions to remove any small
+                # blobs left in the mask
+                mask = cv2.inRange(hsv, lower_green, upper_green)
+                edged = cv2.Canny(mask, 35, 125)
 
-            # find contours in the mask and initialize the current
-            # (x, y) center of the ball
-            im2, cnts, hierarchy = cv2.findContours(edged.copy(), cv2.RETR_LIST, cv2.CHAIN_APPROX_NONE)
+                # find contours in the mask and initialize the current
+                # (x, y) center of the ball
+                im2, cnts, hierarchy = cv2.findContours(edged.copy(), cv2.RETR_LIST, cv2.CHAIN_APPROX_NONE)
 
-            if (len(cnts) >= 1):
-                area, place = contourArea(cnts)
+                if (len(cnts) >= 1):
+                    area, place = contourArea(cnts)
 
-                if (area >= 100):
-                    maxc = cnts[place]
+                    if (area >= 100):
+                        maxc = cnts[place]
 
-                    rect = cv2.minAreaRect(maxc)
-                    box = cv2.boxPoints(rect)
-                    box = np.int0(box)
-                    cv2.drawContours(t, [box], 0, (0, 0, 255), 2)
+                        rect = cv2.minAreaRect(maxc)
+                        box = cv2.boxPoints(rect)
+                        box = np.int0(box)
+                        cv2.drawContours(t, [box], 0, (0, 0, 255), 2)
 
-                    M = cv2.moments(maxc)
-                    cx = int(M['m10'] / M['m00'])  # Center of MASS Coordinates
-                    cy = int(M['m01'] / M['m00'])
-                    rect = cv2.minAreaRect(maxc)
-                    height = rect[1][0]
-                    width = rect[1][1]
+                        M = cv2.moments(maxc)
+                        cx = int(M['m10'] / M['m00'])  # Center of MASS Coordinates
+                        cy = int(M['m01'] / M['m00'])
+                        rect = cv2.minAreaRect(maxc)
+                        height = rect[1][0]
+                        width = rect[1][1]
 
-                    widthreal = max(width, height)
-                    heightreal = min(width, height)
-                    distance = widthDistanceCalc(widthreal)
+                        widthreal = max(width, height)
+                        heightreal = min(width, height)
+                        distance = widthDistanceCalc(widthreal)
 
-                    cv2.putText(t, '%s in. ' % (round(distance, 2)), (10, 400), font, 0.5, (0, 0, 255), 1)
+                        cv2.putText(t, '%s in. ' % (round(distance, 2)), (10, 400), font, 0.5, (0, 0, 255), 1)
 
-                    send.changeMessage('Y ' + str(cx) + ' ' + str(cy) + ' ' + "{0:.2f}".format(
-                        heightreal) + ' ' + "{0:.2f}".format(widthreal))
-            else:
-                send.changeMessage('N')
+                        send.changeMessage('Y ' + str(cx) + ' ' + str(cy) + ' ' + "{0:.2f}".format(
+                            heightreal) + ' ' + "{0:.2f}".format(widthreal))
+                else:
+                    send.changeMessage('N')
 
-            message = receive.getMessage()
 
-            if (message == '2'):
-                frame = tcam2
-            elif (message == '1'):
-                frame = t
-            elif (message == ''):
-                frame = tcam2
+                message = receive.getMessage()
 
-            if (i == 0):
-                target.start()
-            i += 1
+                if (message == '2'):
+                    frame = tcam2
+                elif (message == '1'):
+                    frame = t
+                elif (message == ''):
+                    frame = tcam2
+
+                if (i == 0):
+                    target.start()
+                i += 1
+            inet = True
+
+        else:
+            pass
 
     except KeyboardInterrupt:
         cap.stop()
