@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="95e0bc96-810b-42b8-b555-6d102ed52a63" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Combined/gui/imageGrabTkinterUDP.py" afterPath="$PROJECT_DIR$/Combined/gui/imageGrabTkinterUDP.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Combined/visionServer.py" afterPath="$PROJECT_DIR$/Combined/visionServer.py" />
     </list>
     <ignored path="Windows-RPI-Vision-Framework.iws" />
@@ -27,23 +28,14 @@
       <file leaf-file-name="visionServer.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Combined/visionServer.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="847">
-              <caret line="232" column="0" selection-start-line="232" selection-start-column="0" selection-end-line="232" selection-end-column="0" />
+            <state relative-caret-position="3564">
+              <caret line="275" column="4" selection-start-line="275" selection-start-column="4" selection-end-line="275" selection-end-column="4" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
-                <marker date="1489978251385" expanded="true" signature="10287:10308" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="socketserver.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../../Python/Lib/socketserver.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="363">
-              <caret line="231" column="17" selection-start-line="231" selection-start-column="17" selection-end-line="231" selection-end-column="17" />
-              <folding>
-                <element signature="e#5240#5253#0" expanded="true" />
+                <element signature="e#376#639#0" expanded="false" />
+                <element signature="e#675#833#0" expanded="false" />
+                <element signature="e#690#832#0" expanded="false" />
+                <element signature="e#835#911#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -52,8 +44,8 @@
       <file leaf-file-name="imageGrabTkinterUDP.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Combined/gui/imageGrabTkinterUDP.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="33">
-              <caret line="11" column="1" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
+            <state relative-caret-position="363">
+              <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
               <folding>
                 <element signature="e#0#20#0" expanded="true" />
               </folding>
@@ -214,6 +206,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -280,8 +274,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -304,7 +296,7 @@
       <recent name="C:\Users\Sachin Konan\Documents\FRC2017\Windows-RPI-Vision-Framework\Combined" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.visionServer">
+  <component name="RunManager" selected="Python.imageGrabTkinterUDP">
     <configuration default="false" name="imageGrabTkinterUDP" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -533,8 +525,8 @@
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.visionServer" />
-        <item index="1" class="java.lang.String" itemvalue="Python.imageGrabTkinterUDP" />
+        <item index="0" class="java.lang.String" itemvalue="Python.imageGrabTkinterUDP" />
+        <item index="1" class="java.lang.String" itemvalue="Python.visionServer" />
         <item index="2" class="java.lang.String" itemvalue="Python.checker" />
         <item index="3" class="java.lang.String" itemvalue="Python.SendThread" />
         <item index="4" class="java.lang.String" itemvalue="Python.ReceiveThread" />
@@ -559,14 +551,14 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-16" y="-16" width="3872" height="2116" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3292618" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3292618" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -604,7 +596,10 @@
           <caret line="25" column="32" selection-start-line="25" selection-start-column="32" selection-end-line="25" selection-end-column="32" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
-            <marker date="1489978251385" expanded="true" signature="10287:10308" ph="..." />
+            <element signature="e#376#639#0" expanded="false" />
+            <element signature="e#675#833#0" expanded="false" />
+            <element signature="e#690#832#0" expanded="false" />
+            <element signature="e#835#911#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -636,7 +631,10 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
-            <marker date="1489978251385" expanded="true" signature="10287:10308" ph="..." />
+            <element signature="e#376#639#0" expanded="false" />
+            <element signature="e#675#833#0" expanded="false" />
+            <element signature="e#690#832#0" expanded="false" />
+            <element signature="e#835#911#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -661,7 +659,10 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
-            <marker date="1489978251385" expanded="true" signature="10287:10308" ph="..." />
+            <element signature="e#376#639#0" expanded="false" />
+            <element signature="e#675#833#0" expanded="false" />
+            <element signature="e#690#832#0" expanded="false" />
+            <element signature="e#835#911#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -686,7 +687,10 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
-            <marker date="1489978251385" expanded="true" signature="10287:10308" ph="..." />
+            <element signature="e#376#639#0" expanded="false" />
+            <element signature="e#675#833#0" expanded="false" />
+            <element signature="e#690#832#0" expanded="false" />
+            <element signature="e#835#911#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -849,9 +853,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1980">
           <caret line="70" column="0" selection-start-line="70" selection-start-column="0" selection-end-line="70" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#10#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -917,33 +918,36 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/../../Python/Lib/socketserver.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="7524">
+          <caret line="231" column="17" selection-start-line="231" selection-start-column="17" selection-end-line="231" selection-end-column="17" />
+          <folding>
+            <element signature="e#5240#5253#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Combined/gui/imageGrabTkinterUDP.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="33">
-          <caret line="11" column="1" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
+        <state relative-caret-position="363">
+          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
           <folding>
             <element signature="e#0#20#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../Python/Lib/socketserver.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="363">
-          <caret line="231" column="17" selection-start-line="231" selection-start-column="17" selection-end-line="231" selection-end-column="17" />
-          <folding>
-            <element signature="e#5240#5253#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Combined/visionServer.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="847">
-          <caret line="232" column="0" selection-start-line="232" selection-start-column="0" selection-end-line="232" selection-end-column="0" />
+        <state relative-caret-position="3564">
+          <caret line="275" column="4" selection-start-line="275" selection-start-column="4" selection-end-line="275" selection-end-column="4" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
-            <marker date="1489978251385" expanded="true" signature="10287:10308" ph="..." />
+            <element signature="e#376#639#0" expanded="false" />
+            <element signature="e#675#833#0" expanded="false" />
+            <element signature="e#690#832#0" expanded="false" />
+            <element signature="e#835#911#0" expanded="false" />
           </folding>
         </state>
       </provider>

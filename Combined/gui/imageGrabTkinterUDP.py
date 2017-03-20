@@ -4,13 +4,13 @@ from PIL import Image, ImageTk
 import time
 import cv2 as cv2
 import socket
-import numpy as np
 
 large_font = ("Verdana", 12)
 small_font = ("Verdana", 8)
 
 #ip = '192.168.43.115'
 ip = '10.54.65.58'
+#ip = 'localhost'
 url1 = 'http://' + ip + ':5810/stream.mjpg'
 
 class MainGui(tk.Tk):
