@@ -51,6 +51,7 @@ class InetChecker:
     def __init__(self):
         self.inet = False
         self.command = 'sudo ping -c 1 192.168.1.1'
+        #self.command = 'ping -n 1 192.168.1.1'
         self.stopped = False
 
     def start(self):
@@ -62,7 +63,8 @@ class InetChecker:
             if self.stopped:
                 return
 
-            response = Popen(self.command, shell=True, stdin=PIPE, stdout=PIPE, stderr=STDOUT,close_fds=True).stdout.read().decode()
+            response = Popen(self.command, shell=True, stdin=PIPE, stdout=PIPE, stderr=STDOUT).stdout.read().decode()
+            #response = Popen(self.command, shell=True, stdin=PIPE, stdout=PIPE, stderr=STDOUT,close_fds=True).stdout.read().decode()
 
             if ('Network is unreachable' in response):
                 self.inet = False
@@ -271,7 +273,7 @@ def realmain():
 
     ip = ''
     cap = WebcamVideoStream(src=0).start()
-    os.system('v4l2-ctl --set-ctrl brightness=80')
+    #os.system('v4l2-ctl --set-ctrl brightness=80')
 
     secondcap = WebcamVideoStream(src=1).start()
 
