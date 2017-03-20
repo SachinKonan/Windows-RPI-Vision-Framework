@@ -27,11 +27,13 @@
       <file leaf-file-name="visionServer.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Combined/visionServer.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="847">
-              <caret line="232" column="0" selection-start-line="232" selection-start-column="0" selection-end-line="232" selection-end-column="0" />
+            <state relative-caret-position="-7502">
+              <caret line="104" column="22" selection-start-line="104" selection-start-column="22" selection-end-line="104" selection-end-column="22" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
-                <marker date="1489978251385" expanded="true" signature="10287:10308" ph="..." />
+                <element signature="e#376#639#0" expanded="false" />
+                <element signature="e#690#832#0" expanded="false" />
+                <element signature="e#835#911#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -604,7 +606,9 @@
           <caret line="25" column="32" selection-start-line="25" selection-start-column="32" selection-end-line="25" selection-end-column="32" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
-            <marker date="1489978251385" expanded="true" signature="10287:10308" ph="..." />
+            <element signature="e#376#639#0" expanded="false" />
+            <element signature="e#690#832#0" expanded="false" />
+            <element signature="e#835#911#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -636,7 +640,9 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
-            <marker date="1489978251385" expanded="true" signature="10287:10308" ph="..." />
+            <element signature="e#376#639#0" expanded="false" />
+            <element signature="e#690#832#0" expanded="false" />
+            <element signature="e#835#911#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -661,7 +667,9 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
-            <marker date="1489978251385" expanded="true" signature="10287:10308" ph="..." />
+            <element signature="e#376#639#0" expanded="false" />
+            <element signature="e#690#832#0" expanded="false" />
+            <element signature="e#835#911#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -686,7 +694,9 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
-            <marker date="1489978251385" expanded="true" signature="10287:10308" ph="..." />
+            <element signature="e#376#639#0" expanded="false" />
+            <element signature="e#690#832#0" expanded="false" />
+            <element signature="e#835#911#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -939,11 +949,13 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Combined/visionServer.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="847">
-          <caret line="232" column="0" selection-start-line="232" selection-start-column="0" selection-end-line="232" selection-end-column="0" />
+        <state relative-caret-position="-7502">
+          <caret line="104" column="22" selection-start-line="104" selection-start-column="22" selection-end-line="104" selection-end-column="22" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
-            <marker date="1489978251385" expanded="true" signature="10287:10308" ph="..." />
+            <element signature="e#376#639#0" expanded="false" />
+            <element signature="e#690#832#0" expanded="false" />
+            <element signature="e#835#911#0" expanded="false" />
           </folding>
         </state>
       </provider>
