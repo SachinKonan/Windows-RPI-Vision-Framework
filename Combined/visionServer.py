@@ -282,6 +282,7 @@ def realmain():
     internet = InetChecker().start()
 
     target = Thread(target=server.serve_forever, args=())
+    target.daemon = True
     print("starting server ")
 
     try:
@@ -353,6 +354,13 @@ def realmain():
             receive.idle()
 
     except KeyboardInterrupt:
+        cap.stop()
+        secondcap.stop()
+        target.join()
+        internet.stop()
+
+        target.join()
+
         sys.exit()
 
 
