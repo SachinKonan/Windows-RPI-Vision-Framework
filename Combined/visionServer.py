@@ -273,7 +273,7 @@ def realmain():
 
     ip = ''
     cap = WebcamVideoStream(src=0).start()
-    #os.system('v4l2-ctl --set-ctrl brightness=80')
+    os.system('v4l2-ctl --set-ctrl brightness=80')
 
     secondcap = WebcamVideoStream(src=1).start()
 
