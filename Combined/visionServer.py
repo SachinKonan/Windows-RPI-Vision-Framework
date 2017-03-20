@@ -96,7 +96,7 @@ class SendThread:
                 self.sock.close()
                 return
 
-            if(not self.idle)
+            if(not self.idle):
                 self.sock.sendto(self.message.encode(), (self.UDP_IP, self.PORT))
             else:
                 pass
@@ -271,7 +271,7 @@ def realmain():
 
     ip = ''
     cap = WebcamVideoStream(src=0).start()
-    #os.system('v4l2-ctl --set-ctrl brightness=80')
+    os.system('v4l2-ctl --set-ctrl brightness=80')
 
     secondcap = WebcamVideoStream(src=1).start()
 
@@ -348,8 +348,6 @@ def realmain():
                 if (i == 0):
                     target.start()
                 i += 1
-            inet = True
-
         else:
             send.idle()
             receive.idle()
