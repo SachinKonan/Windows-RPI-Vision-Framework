@@ -45,7 +45,7 @@ def contourArea(contours):
 
 def widthDistanceCalc(x):
 	return -0.0003 * math.pow(x, 3) + 0.0881 * x * x - 10.336 * x + 553.9
-
+		
 class InetChecker:
 	def __init__(self):
 		self.inet = False
@@ -228,6 +228,22 @@ class WebcamVideoStream:
 		# indicate that the thread should be stopped
 		self.stopped = True
 
+class dumServeForever:
+	def __init__(self, ip = ''):
+		self.server = ThreadedHTTPServer((ip, 5810), CamHandler)
+		self.stopped = False
+		
+	def start(self):
+		Thread(target=self.update, args=()).start()
+		
+	def update(self):
+		while True:
+			if self.stopped:
+				return
+			self.server.serve_forever()
+
+	def stop(self):
+		self.stopped = True
 
 def realmain():
 	global frame
@@ -259,105 +275,96 @@ def realmain():
 
 	secondcap = WebcamVideoStream(src=1).start()
 
-	server = ThreadedHTTPServer((ip, 5810), CamHandler)
-
 	inet = False
 	
 	internet = InetChecker().start()
 
-	target = Thread(target=server.serve_forever, args=())
+	target = dumServeForever()
+	
 	print("starting server ")
 
-	try:
-		i = 0
-		while True:
-			inet = internet.getInet()
-			if inet:
-				if(cap is None):
-					raise Exception('Cam 1 isn not Connected')
-					target.join()
-					sys.exit()
-					break
-				if(secondcap is None):
-					raise Exception('Cam2 isn not Connected')
-					sys.exit()
-					target.join()
-					break
-				
-				img = cap.read()
-				img1 = secondcap.read()
-
+	i = 0
+	while True:
+		inet = internet.getInet()
+		if inet:
+			img = cap.read()
+			img1 = secondcap.read()
+			try:
 				t = imutils.resize(img, width=640, height=480)
+			except AttributeError:
+				raise Exception('Connect Cam 1')
+				break
+			
+			try:
 				tcam2 = imutils.resize(img1, width=640, height=480)
+			except AttributeError:
+				raise Exception('Connect Cam 2')
+				break
+			
+			img2 = cv2.GaussianBlur(t, (5, 5), 0)
+			hsv = cv2.cvtColor(img2, cv2.COLOR_BGR2HSV)
+			# construct a mask for the color "green", then perform
+			# a series of dilations and erosions to remove any small
+			# blobs left in the mask
+			mask = cv2.inRange(hsv, lower_green, upper_green)
+			edged = cv2.Canny(mask, 35, 125)
 
-				img2 = cv2.GaussianBlur(t, (5, 5), 0)
-				hsv = cv2.cvtColor(img2, cv2.COLOR_BGR2HSV)
-				# construct a mask for the color "green", then perform
-				# a series of dilations and erosions to remove any small
-				# blobs left in the mask
-				mask = cv2.inRange(hsv, lower_green, upper_green)
-				edged = cv2.Canny(mask, 35, 125)
+			# find contours in the mask and initialize the current
+			# (x, y) center of the ball
+			im2, cnts, hierarchy = cv2.findContours(edged.copy(), cv2.RETR_LIST, cv2.CHAIN_APPROX_NONE)
 
-				# find contours in the mask and initialize the current
-				# (x, y) center of the ball
-				im2, cnts, hierarchy = cv2.findContours(edged.copy(), cv2.RETR_LIST, cv2.CHAIN_APPROX_NONE)
+			if (len(cnts) >= 1):
+				area, place = contourArea(cnts)
 
-				if (len(cnts) >= 1):
-					area, place = contourArea(cnts)
+				if (area >= 100):
+					maxc = cnts[place]
 
-					if (area >= 100):
-						maxc = cnts[place]
+					rect = cv2.minAreaRect(maxc)
+					box = cv2.boxPoints(rect)
+					box = np.int0(box)
+					cv2.drawContours(t, [box], 0, (0, 0, 255), 2)
 
-						rect = cv2.minAreaRect(maxc)
-						box = cv2.boxPoints(rect)
-						box = np.int0(box)
-						cv2.drawContours(t, [box], 0, (0, 0, 255), 2)
+					M = cv2.moments(maxc)
+					cx = int(M['m10'] / M['m00'])  # Center of MASS Coordinates
+					cy = int(M['m01'] / M['m00'])
+					rect = cv2.minAreaRect(maxc)
+					height = rect[1][0]
+					width = rect[1][1]
 
-						M = cv2.moments(maxc)
-						cx = int(M['m10'] / M['m00'])  # Center of MASS Coordinates
-						cy = int(M['m01'] / M['m00'])
-						rect = cv2.minAreaRect(maxc)
-						height = rect[1][0]
-						width = rect[1][1]
+					widthreal = max(width, height)
+					heightreal = min(width, height)
+					distance = widthDistanceCalc(widthreal)
 
-						widthreal = max(width, height)
-						heightreal = min(width, height)
-						distance = widthDistanceCalc(widthreal)
+					cv2.putText(t, '%s in. ' % (round(distance, 2)), (10, 400), font, 0.5, (0, 0, 255), 1)
 
-						cv2.putText(t, '%s in. ' % (round(distance, 2)), (10, 400), font, 0.5, (0, 0, 255), 1)
-
-						send.changeMessage('Y ' + str(cx) + ' ' + str(cy) + ' ' + "{0:.2f}".format(
-							heightreal) + ' ' + "{0:.2f}".format(widthreal))
-				else:
-					send.changeMessage('N')
-
-
-				message = receive.getMessage()
-
-				if (message == '2'):
-					frame = tcam2
-				elif (message == '1'):
-					frame = t
-				elif (message == ''):
-					frame = tcam2
-
-				if (i == 0):
-					target.start()
-				i += 1
-			inet = True
-
-		else:
-			pass
-
-	except KeyboardInterrupt:
-		cap.stop()
-		secondcap.stop()
-		target.join()
-		
-		send.stop()
-		receive.stop()
-		sys.exit()
+					send.changeMessage('Y ' + str(cx) + ' ' + str(cy) + ' ' + "{0:.2f}".format(
+						heightreal) + ' ' + "{0:.2f}".format(widthreal))
+			else:
+				send.changeMessage('N')
 
 
+			message = receive.getMessage()
+
+			if (message == '2'):
+				frame = tcam2
+			elif (message == '1'):
+				frame = t
+			elif (message == ''):
+				frame = tcam2
+
+			if (i == 0):
+				dumServeForever.start()
+			i += 1
+		inet = True
+
+	else:
+		pass
+	
+	dumServeForever.stop()
+	send.stop()
+	receive.stop()
+	cap.stop()
+	secondcap.stop()
+	
 if __name__ == '__main__':
 	realmain()
