@@ -85,7 +85,7 @@ class SendThread:
         self.sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
         self.message = ''
         self.stopped = False
-        self.idle = False
+        self.steady = False
 
     def start(self):
         Thread(target=self.update, args=()).start()
@@ -96,7 +96,7 @@ class SendThread:
                 self.sock.close()
                 return
 
-            if(not self.idle):
+            if(not self.steady):
                 self.sock.sendto(self.message.encode(), (self.UDP_IP, self.PORT))
             else:
                 pass
@@ -108,7 +108,7 @@ class SendThread:
         self.message = string
 
     def idle(self):
-        self.idle = True
+        self.steady = True
 
 
 class ReceiveThread:
@@ -120,7 +120,7 @@ class ReceiveThread:
         self.sock.bind((UDP_IP, PORT))
         self.message = ''
         self.stopped = False
-        self.idle = False
+        self.steady = False
 
     def start(self):
         # start the thread to read frames from the video stream
@@ -132,7 +132,7 @@ class ReceiveThread:
                 self.sock.close()
                 return
 
-            if(not self.idle):
+            if(not self.steady):
                 data, addr = self.sock.recvfrom(self.BUFF_SIZE)
                 if (data.decode() != ''):
                     self.message = data.decode()
@@ -149,7 +149,7 @@ class ReceiveThread:
         self.stopped = True
 
     def idle(self):
-        self.idle = True
+        self.steady = True
 
 
 class CamHandler(BaseHTTPRequestHandler):
