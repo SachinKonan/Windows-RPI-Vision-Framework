@@ -151,7 +151,7 @@ def realmain():
     UDP_IP = ''
     #UDP_COMP = '10.54.65.58'
     #UDP_COMP = '192.168.43.157'
-    UDP_COMP = ' 192.168.1.111'
+    UDP_COMP = '192.168.1.111'
 
     font = cv2.FONT_HERSHEY_SIMPLEX
     sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
