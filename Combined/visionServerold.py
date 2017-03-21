@@ -175,19 +175,6 @@ def realmain():
             img = cap.read()
             img1 = secondcap.read()
 
-            if (img == None):
-                raise Exception('Cam 1 isn not Connected')
-                cap.stop()
-                secondcap.stop()
-                target.join()
-                sys.exit()
-            if (img1 == None):
-                raise Exception('Cam2 isn not Connected')
-                sys.exit()
-                cap.stop()
-                secondcap.stop()
-                target.join()
-
             t = imutils.resize(img, width=640, height=480)
             tcam2 = imutils.resize(img1, width=640, height=480)
 
