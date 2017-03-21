@@ -50,8 +50,8 @@ def widthDistanceCalc(x):
 class InetChecker:
     def __init__(self):
         self.inet = False
-        #self.command = 'sudo ping -c 1 192.168.1.1'
-        self.command = 'ping -n 1 192.168.1.1'
+        self.command = 'sudo ping -c 1 192.168.1.1'
+        #self.command = 'ping -n 1 192.168.1.1'
         self.stopped = False
 
     def start(self):
