@@ -53,11 +53,11 @@ class ReceiveThread:
 
             try:
                 data, addr = self.sock.recvfrom(self.BUFF_SIZE)
+                self.status = True
                 if (data.decode() != ''):
                     self.message = data.decode()
                 else:
                     self.message = ''
-                self.status = True
             except OSError:
                 self.status = False
 
@@ -188,7 +188,7 @@ def realmain():
                 t = imutils.resize(img, width=640, height=480)
                 tcam2 = imutils.resize(img1, width=640, height=480)
 
-                if (message == '2'):
+                if (message == '2' or message == ''):
                     frame = tcam2
                 elif (message == '1'):
 
@@ -232,15 +232,14 @@ def realmain():
                     else:
                         MESSAGE = 'N'
                     frame = t
-                elif (message == ''):
-                    frame = tcam2
-
-                sock.sendto(MESSAGE.encode(), (UDP_COMP, UDP_PORT))
+                    if (i == 0):
+                        target.start()
+                    i += 1
             else:
                 pass
-            if (i == 0):
-                target.start()
-            i += 1
+
+            sock.sendto(MESSAGE.encode(), (UDP_COMP, UDP_PORT))
+
 
     except KeyboardInterrupt:
         cap.stop()
