@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="95e0bc96-810b-42b8-b555-6d102ed52a63" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Combined/gui/imageGrabTkinterUDP.py" afterPath="$PROJECT_DIR$/Combined/gui/imageGrabTkinterUDP.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Combined/visionServerold.py" afterPath="$PROJECT_DIR$/Combined/visionServerold.py" />
     </list>
     <ignored path="Windows-RPI-Vision-Framework.iws" />
@@ -26,7 +27,7 @@
       <file leaf-file-name="visionServer.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Combined/visionServer.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="814">
+            <state relative-caret-position="-440">
               <caret line="275" column="13" selection-start-line="275" selection-start-column="7" selection-end-line="275" selection-end-column="13" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
@@ -42,11 +43,9 @@
       <file leaf-file-name="imageGrabTkinterUDP.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Combined/gui/imageGrabTkinterUDP.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2189">
-              <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
-              <folding>
-                <element signature="e#0#20#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="-2871">
+              <caret line="3" column="11" selection-start-line="3" selection-start-column="11" selection-end-line="3" selection-end-column="11" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -54,8 +53,8 @@
       <file leaf-file-name="visionServerold.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Combined/visionServerold.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="253">
-              <caret line="152" column="31" selection-start-line="152" selection-start-column="31" selection-end-line="152" selection-end-column="31" />
+            <state relative-caret-position="616">
+              <caret line="195" column="14" selection-start-line="195" selection-start-column="14" selection-end-line="195" selection-end-column="14" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
               </folding>
@@ -875,19 +874,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Combined/gui/imageGrabTkinterUDP.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2189">
-          <caret line="25" column="0" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#20#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Combined/visionServer.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="814">
+        <state relative-caret-position="-440">
           <caret line="275" column="13" selection-start-line="275" selection-start-column="7" selection-end-line="275" selection-end-column="13" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
@@ -899,10 +888,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Combined/gui/imageGrabTkinterUDP.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2871">
+          <caret line="3" column="11" selection-start-line="3" selection-start-column="11" selection-end-line="3" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Combined/visionServerold.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
-          <caret line="152" column="31" selection-start-line="152" selection-start-column="31" selection-end-line="152" selection-end-column="31" />
+        <state relative-caret-position="616">
+          <caret line="195" column="14" selection-start-line="195" selection-start-column="14" selection-end-line="195" selection-end-column="14" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
           </folding>

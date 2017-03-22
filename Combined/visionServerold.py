@@ -11,7 +11,6 @@ from operator import itemgetter
 import math
 import os
 
-
 # construct the argument parse and parse the arguments
 # v4l2-ctl --set-ctrl brightness=25
 # cmd commands:
@@ -41,6 +40,7 @@ class ReceiveThread:
         self.sock.bind((UDP_IP, PORT))
         self.message = ''
         self.stopped = False
+        self.status = False
 
     def start(self):
         # start the thread to read frames from the video stream
@@ -51,14 +51,18 @@ class ReceiveThread:
             if self.stopped:
                 return
 
-            data, addr = self.sock.recvfrom(self.BUFF_SIZE)
-            if (data.decode() != ''):
-                self.message = data.decode()
-            else:
-                self.message = ''
+            try:
+                data, addr = self.sock.recvfrom(self.BUFF_SIZE)
+                if (data.decode() != ''):
+                    self.message = data.decode()
+                else:
+                    self.message = ''
+                self.status = True
+            except OSError:
+                self.status = False
 
     def getMessage(self):
-        return self.message
+        return [self.status,self.message]
 
     def stop(self):
         # indicate that the thread should be stopped
@@ -142,6 +146,7 @@ def realmain():
     global frame
     global frame1
 
+    MESSAGE = ''
     lower_green = (55, 140, 110)
     upper_green = (90, 256, 256)
 
@@ -177,59 +182,62 @@ def realmain():
             img = cap.read()
             img1 = secondcap.read()
 
-            message = receive.getMessage()
+            ret,message = receive.getMessage()
 
-            t = imutils.resize(img, width=640, height=480)
-            tcam2 = imutils.resize(img1, width=640, height=480)
+            if ret:
+                t = imutils.resize(img, width=640, height=480)
+                tcam2 = imutils.resize(img1, width=640, height=480)
 
-            if (message == '2'):
-                frame = tcam2
-            elif (message == '1'):
+                if (message == '2'):
+                    frame = tcam2
+                elif (message == '1'):
 
-                img2 = cv2.GaussianBlur(t, (5, 5), 0)
-                hsv = cv2.cvtColor(img2, cv2.COLOR_BGR2HSV)
-                # construct a mask for the color "green", then perform
-                # a series of dilations and erosions to remove any small
-                # blobs left in the mask
-                mask = cv2.inRange(hsv, lower_green, upper_green)
-                edged = cv2.Canny(mask, 35, 125)
+                    img2 = cv2.GaussianBlur(t, (5, 5), 0)
+                    hsv = cv2.cvtColor(img2, cv2.COLOR_BGR2HSV)
+                    # construct a mask for the color "green", then perform
+                    # a series of dilations and erosions to remove any small
+                    # blobs left in the mask
+                    mask = cv2.inRange(hsv, lower_green, upper_green)
+                    edged = cv2.Canny(mask, 35, 125)
 
-                # find contours in the mask and initialize the current
-                # (x, y) center of the ball
-                im2, cnts, hierarchy = cv2.findContours(edged.copy(), cv2.RETR_LIST, cv2.CHAIN_APPROX_NONE)
+                    # find contours in the mask and initialize the current
+                    # (x, y) center of the ball
+                    im2, cnts, hierarchy = cv2.findContours(edged.copy(), cv2.RETR_LIST, cv2.CHAIN_APPROX_NONE)
 
-                if (len(cnts) >= 1):
-                    area, place = contourArea(cnts)
+                    if (len(cnts) >= 1):
+                        area, place = contourArea(cnts)
 
-                    if (area >= 100):
-                        maxc = cnts[place]
+                        if (area >= 100):
+                            maxc = cnts[place]
 
-                        rect = cv2.minAreaRect(maxc)
-                        box = cv2.boxPoints(rect)
-                        box = np.int0(box)
-                        cv2.drawContours(t, [box], 0, (0, 0, 255), 2)
+                            rect = cv2.minAreaRect(maxc)
+                            box = cv2.boxPoints(rect)
+                            box = np.int0(box)
+                            cv2.drawContours(t, [box], 0, (0, 0, 255), 2)
 
-                        M = cv2.moments(maxc)
-                        cx = int(M['m10'] / M['m00'])  # Center of MASS Coordinates
-                        cy = int(M['m01'] / M['m00'])
-                        rect = cv2.minAreaRect(maxc)
-                        height = rect[1][0]
-                        width = rect[1][1]
+                            M = cv2.moments(maxc)
+                            cx = int(M['m10'] / M['m00'])  # Center of MASS Coordinates
+                            cy = int(M['m01'] / M['m00'])
+                            rect = cv2.minAreaRect(maxc)
+                            height = rect[1][0]
+                            width = rect[1][1]
 
-                        widthreal = max(width, height)
-                        heightreal = min(width, height)
-                        distance = widthDistanceCalc(widthreal)
+                            widthreal = max(width, height)
+                            heightreal = min(width, height)
+                            distance = widthDistanceCalc(widthreal)
 
-                        cv2.putText(t, '%s in. ' % (round(distance, 2)), (10, 400), font, 0.5, (0, 0, 255), 1)
+                            cv2.putText(t, '%s in. ' % (round(distance, 2)), (10, 400), font, 0.5, (0, 0, 255), 1)
 
-                        sock.sendto(('Y ' + str(cx) + ' ' + str(cy) + ' ' + "{0:.2f}".format(
-                            heightreal) + ' ' + "{0:.2f}".format(widthreal)).encode(), (UDP_COMP, UDP_PORT))
-                else:
-                    sock.sendto('N'.encode(), (UDP_COMP, UDP_PORT))
-                frame = t
-            elif (message == ''):
-                frame = tcam2
+                            MESSAGE = ('Y ' + str(cx) + ' ' + str(cy) + ' ' + "{0:.2f}".format(heightreal) + ' ' + "{0:.2f}".format(widthreal))
+                    else:
+                        MESSAGE = 'N'
+                    frame = t
+                elif (message == ''):
+                    frame = tcam2
 
+                sock.sendto(MESSAGE.encode(), (UDP_COMP, UDP_PORT))
+            else:
+                pass
             if (i == 0):
                 target.start()
             i += 1
