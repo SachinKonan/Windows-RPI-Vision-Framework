@@ -5,16 +5,14 @@ from matplotlib import style
 from PIL import Image, ImageTk
 import time
 import cv2 as cv2
-import matplotlib.pyplot as plt
-import threading
-from threading import Thread
 
 
 large_font = ("Verdana", 12)
 small_font = ("Verdana", 8)
 
-url1 = 'http://localhost:9090/stream.mjpg'
-url2 = ''
+ip = '10.54.65.58'
+url1 = 'http://' + ip + ':5810/stream.mjpg'
+
 class MainGui(tk.Tk):
     def __init__(self, *args, **kwargs):
         tk.Tk.__init__(self, *args, **kwargs)
@@ -76,9 +74,6 @@ class PageOne(tk.Frame):
 
         chan1 = ttk.Button(frame, text="Start Stream ", command= self.startStream)
         chan1.pack(side= tk.LEFT,pady=20, padx=20)
-
-        chan3 = ttk.Button(frame, text="Switch to Gear Stream ", command=self.changeStream)
-        chan3.pack(side=tk.LEFT, pady=20, padx=145)
 
         chan2 = ttk.Button(frame, text="Stop Stream", command= self.stopStream)
         chan2.pack(side= tk.RIGHT,pady=20, padx=20)
