@@ -36,6 +36,11 @@ These instructions will get you a copy of the project up and running on your loc
 4. Download Putty on Control computer
  - Download Putty.exe from this link: http://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html, and follow the relatively simple install.
 
+### How to Use
+
+Once all dependencies are installed, plug a webcam into the raspberry pi. Then type into the raspberry pi terminal: hostname -I. Copy down this address then run the visionServer.py. On your viewing computer, open imageGrabTkinter.py and replace the ip string with the one you copied from the raspberry pi. Run this program and when you click start stream a live video feed of the raspberry pi should pop up. If you would to do things like blurring or canny-edge detection this can be easily modified by going into the visionServer.py file on the rpi and manipulating the image with opencv before the declaration frame = img. Samples of more complex image operations are found in Combined with visionServer2.py and its guibrother, imageGrabTkinterUDP.py in the gui folder. These two commence complex image operations and even operate on two cameras. 
+
+For two Camera operation a UDP button the gui was created which when clicked will switch webcam feeds in visionServer2.py. 
 ## Authors
 
 * **Sachin Konan** - *Initial work* - [SachinKonan](https:/github.com/SachinKonan)
